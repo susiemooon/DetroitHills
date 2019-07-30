@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/Assets/style.css">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="oneMusic-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="oneMusicNav">
+
+                        <!-- Nav brand -->
+                        <a href="" class="nav-brand"><img src="~/Assets/img/core-img/logo.png"></a>
+
+
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- Nav Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                    <li><a href="">News</a></li>
+                                    <li>
+                                        <a href="">Albums</a>
+                                        <ul class="dropdown">
+                                            <li><a href="">Worldplace (2013)</a></li>
+                                            <li><a href="">Delight (2015)</a></li>
+                                            <li><a href="">Memory (2016)</a></li>
+
+                                        </ul>
+                                    <li><a href="">Videos</a></li>
+                                    <li><a href="">Photos</a></li>
+                                    <li><a href="">Tour</a></li>
+                                    <li><a href="">Shop</a></li>
+                                </ul>
+
+                                <!-- Login/Register Button -->
+                                <div class="login-register-cart-button d-flex align-items-center">
+
+                                    <div class="login-register-btn mr-50">
+                                        <a href="" id="loginBtn">Login / Register</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Nav End -->
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row d-flex flex-wrap align-items-center">
+                <div class="col-12 col-md-6">
+                    <a href="@Url.Action("Index", "Home")"><img src="~/Assets/img/core-img/logo1.png" alt=""></a>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="footer-nav">
+                        <ul>
+                            <li><a href="https://vk.com/detroit_hills">VK</a></li>
+                            <li><a href="https://www.facebook.com/DetroitHills/">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/detroit_hills/">Instagram</a></li>
+                            <li><a href="https://www.last.fm/ru/music/Detroit+Hills">LastFM</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Assets/js/jquery/jquery-2.2.4.min.js"></script>
+
+    <script src="~/Assets/js/plugins/plugins.js"></script>
+    <!-- Active js -->
+    <script src="~/Assets/js/active.js"></script>  
+</body>
+</html>

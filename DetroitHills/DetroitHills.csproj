@@ -89,19 +89,153 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\audio\Copacabana.mp3" />
+    <Content Include="Assets\audio\Falling Upward.mp3" />
+    <Content Include="Assets\audio\Go Home.mp3" />
+    <Content Include="Assets\audio\Honesty.mp3" />
+    <Content Include="Assets\audio\Joy.mp3" />
+    <Content Include="Assets\audio\Look forward.mp3" />
+    <Content Include="Assets\audio\Memory.mp3" />
+    <Content Include="Assets\audio\Part 1.mp3" />
+    <Content Include="Assets\audio\Pioneer song.mp3" />
+    <Content Include="Assets\audio\Rustle Of The Morning Stars.mp3" />
+    <Content Include="Assets\audio\State Of Soul.mp3" />
+    <Content Include="Assets\audio\The Charge.mp3" />
+    <Content Include="Assets\audio\The OneDayMan.mp3" />
+    <Content Include="Assets\audio\Think And Do.mp3" />
+    <Content Include="Assets\audio\To Advance Together.mp3" />
+    <Content Include="Assets\audio\Waterproof Dream.mp3" />
+    <Content Include="Assets\audio\When Parallels Converge.mp3" />
+    <Content Include="Assets\audio\Wow.mp3" />
+    <Content Include="Assets\css\animate.css" />
+    <Content Include="Assets\css\audioplayer.css" />
+    <Content Include="Assets\css\bootstrap.min.css" />
+    <Content Include="Assets\css\classy-nav.css" />
+    <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\magnific-popup.css" />
+    <Content Include="Assets\css\one-music-icon.css" />
+    <Content Include="Assets\css\owl.carousel.min.css" />
+    <Content Include="Assets\fonts\classy.svg" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\fonts\icomoon.svg" />
+    <Content Include="Assets\img\bg-img\a1.jpg" />
+    <Content Include="Assets\img\bg-img\a2.jpg" />
+    <Content Include="Assets\img\bg-img\a3.jpg" />
+    <Content Include="Assets\img\bg-img\a4.jpg" />
+    <Content Include="Assets\img\bg-img\a5.jpg" />
+    <Content Include="Assets\img\bg-img\a6.jpg" />
+    <Content Include="Assets\img\bg-img\a7.jpg" />
+    <Content Include="Assets\img\bg-img\bg-1.jpg" />
+    <Content Include="Assets\img\bg-img\bg-2.jpg" />
+    <Content Include="Assets\img\bg-img\blog1.jpg" />
+    <Content Include="Assets\img\bg-img\blog2.jpg" />
+    <Content Include="Assets\img\bg-img\blog3.jpg" />
+    <Content Include="Assets\img\bg-img\delight_back.jpg" />
+    <Content Include="Assets\img\bg-img\login_back.jpg" />
+    <Content Include="Assets\img\bg-img\memory_back.jpg" />
+    <Content Include="Assets\img\bg-img\news_back.jpg" />
+    <Content Include="Assets\img\bg-img\photo_back.jpg" />
+    <Content Include="Assets\img\bg-img\s1.jpg" />
+    <Content Include="Assets\img\bg-img\s10.jpg" />
+    <Content Include="Assets\img\bg-img\s11.jpg" />
+    <Content Include="Assets\img\bg-img\s12.jpg" />
+    <Content Include="Assets\img\bg-img\s13.jpg" />
+    <Content Include="Assets\img\bg-img\s14.jpg" />
+    <Content Include="Assets\img\bg-img\s15.jpg" />
+    <Content Include="Assets\img\bg-img\s16.jpg" />
+    <Content Include="Assets\img\bg-img\s17.jpg" />
+    <Content Include="Assets\img\bg-img\s18.jpg" />
+    <Content Include="Assets\img\bg-img\s19.jpg" />
+    <Content Include="Assets\img\bg-img\s2.jpg" />
+    <Content Include="Assets\img\bg-img\s3.jpg" />
+    <Content Include="Assets\img\bg-img\s4.jpg" />
+    <Content Include="Assets\img\bg-img\s5.jpg" />
+    <Content Include="Assets\img\bg-img\s6.jpg" />
+    <Content Include="Assets\img\bg-img\s7.jpg" />
+    <Content Include="Assets\img\bg-img\s8.jpg" />
+    <Content Include="Assets\img\bg-img\s9.jpg" />
+    <Content Include="Assets\img\bg-img\shop1.jpg" />
+    <Content Include="Assets\img\bg-img\shop2.jpg" />
+    <Content Include="Assets\img\bg-img\shop3.jpg" />
+    <Content Include="Assets\img\bg-img\shop4.jpg" />
+    <Content Include="Assets\img\bg-img\shop5.jpg" />
+    <Content Include="Assets\img\bg-img\shop_back.jpg" />
+    <Content Include="Assets\img\bg-img\tour1.jpg" />
+    <Content Include="Assets\img\bg-img\tour_back.jpg" />
+    <Content Include="Assets\img\bg-img\v6_6r2-IgQA.jpg" />
+    <Content Include="Assets\img\bg-img\video_back.jpg" />
+    <Content Include="Assets\img\bg-img\worldplace_back.jpg" />
+    <Content Include="Assets\img\core-img\logo.png" />
+    <Content Include="Assets\img\core-img\logo1.png" />
+    <Content Include="Assets\img\ph_1\1.jpg" />
+    <Content Include="Assets\img\ph_1\10.jpg" />
+    <Content Include="Assets\img\ph_1\2.jpg" />
+    <Content Include="Assets\img\ph_1\3.jpg" />
+    <Content Include="Assets\img\ph_1\4.jpg" />
+    <Content Include="Assets\img\ph_1\5.jpg" />
+    <Content Include="Assets\img\ph_1\6.jpg" />
+    <Content Include="Assets\img\ph_1\7.jpg" />
+    <Content Include="Assets\img\ph_1\8.jpg" />
+    <Content Include="Assets\img\ph_1\9.jpg" />
+    <Content Include="Assets\img\ph_2\1.jpg" />
+    <Content Include="Assets\img\ph_2\10.jpg" />
+    <Content Include="Assets\img\ph_2\2.jpg" />
+    <Content Include="Assets\img\ph_2\3.jpg" />
+    <Content Include="Assets\img\ph_2\4.jpg" />
+    <Content Include="Assets\img\ph_2\5.jpg" />
+    <Content Include="Assets\img\ph_2\6.jpg" />
+    <Content Include="Assets\img\ph_2\7.jpg" />
+    <Content Include="Assets\img\ph_2\8.jpg" />
+    <Content Include="Assets\img\ph_2\9.jpg" />
+    <Content Include="Assets\img\ph_3\1.jpg" />
+    <Content Include="Assets\img\ph_3\10.jpg" />
+    <Content Include="Assets\img\ph_3\2.jpg" />
+    <Content Include="Assets\img\ph_3\3.jpg" />
+    <Content Include="Assets\img\ph_3\4.jpg" />
+    <Content Include="Assets\img\ph_3\5.jpg" />
+    <Content Include="Assets\img\ph_3\6.jpg" />
+    <Content Include="Assets\img\ph_3\7.jpg" />
+    <Content Include="Assets\img\ph_3\8.jpg" />
+    <Content Include="Assets\img\ph_3\9.jpg" />
+    <Content Include="Assets\js\active.js" />
+    <Content Include="Assets\js\bootstrap\bootstrap.min.js" />
+    <Content Include="Assets\js\bootstrap\popper.min.js" />
+    <Content Include="Assets\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Assets\js\plugins\plugins.js" />
+    <Content Include="Assets\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Tour.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Assets\fonts\classy.eot" />
+    <Content Include="Assets\fonts\classy.ttf" />
+    <Content Include="Assets\fonts\classy.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\fonts\icomoon.eot" />
+    <Content Include="Assets\fonts\icomoon.ttf" />
+    <Content Include="Assets\fonts\icomoon.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,8 +245,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
