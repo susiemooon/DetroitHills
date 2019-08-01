@@ -14,6 +14,22 @@ namespace DetroitHills.Controllers
             return View();
         }
 
+        public ActionResult Worldplace()
+        {
+            return View();
+        }
+
+        public ActionResult Delight()
+        {
+            return View();
+        }
+
+        public ActionResult Memory()
+        {
+            return View();
+        }
+
+
         
     }
 }
