@@ -1,0 +1,51 @@
+﻿@model DetroitHills.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ <!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/login_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Login</h2>
+    </div>
+</section>
+<!-- ##### Breadcumb Area Ed ##### -->
+<!-- ##### Login Area Start ##### -->
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+                    <h3>Welcome Back</h3>
+                    <!-- Login Form -->
+                    <div class="login-form">
+                    @using (Html.BeginForm())
+                    {
+                        
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User Name</label>
+                               <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User Name"> -->
+                                <p class="form-control">@Html.EditorFor(mbox => Model.username) </p>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <p class="form-control"> @Html.PasswordFor(mbox => Model.password) </p>
+                            </div>
+                            <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+                     }
+                            <div class="form-group">
+                                <p></p>
+                                <label><a href="@Url.Action("Register", "Home")">Don't have a profile? Create new.</a></label>
+                            </div>
+                                           
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Login Area End ##### -->
+
