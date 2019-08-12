@@ -22,15 +22,15 @@
                     <div class="login-form">
                     @using (Html.BeginForm())
                     {
-                        
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Name</label>
                                <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User Name"> -->
-                                <p class="form-control">@Html.EditorFor(mbox => Model.username) </p>
+                                <p>@Html.EditorFor(mbox => Model.username, new { htmlAttributes = new { @class = "form-control" } }) </p>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <p class="form-control"> @Html.PasswordFor(mbox => Model.password) </p>
+                                <p> @Html.EditorFor(mbox => Model.password, new { htmlAttributes = new { @class = "form-control" } }) </p>
                             </div>
                             <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
                      }

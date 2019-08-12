@@ -1,0 +1,51 @@
+﻿@model DetroitHills.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/login_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Register</h2>
+    </div>
+</section>
+<!-- ##### Breadcumb Area End ##### -->
+<!-- ##### Login Area Start ##### -->
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+                    <h3>Create Profile</h3>
+                    @using (Html.BeginForm())
+                    {
+                    <div class="login-form">
+                        
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">User Name</label>
+                                <p>@Html.EditorFor(mbox => Model.username, new { htmlAttributes = new { @class = "form-control" } })</p>
+                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.username)</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                @Html.EditorFor(mbox => Model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.email)</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                @Html.EditorFor(mbox => Model.password, new { htmlAttributes = new { @class = "form-control" } })
+                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.password)</p>
+                            </div>
+                            
+                            <input type="submit" class="btn oneMusic-btn mt-30" value="Register"/>
+                                                
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Login Area End ##### -->
+

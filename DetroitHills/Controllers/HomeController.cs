@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using DetroitHills.DAL;
 using DetroitHills.Models;
+using DetroitHills.ViewModels;
 using System.Web.Security;
 
 namespace DetroitHills.Controllers
@@ -50,6 +51,7 @@ namespace DetroitHills.Controllers
             }
             else
             {
+                Session["login"] = userName; 
                 FormsAuthentication.SetAuthCookie(userName, false);
                 if (userName == "admin")
                     return RedirectToAction("Index", "Admin");
@@ -61,7 +63,13 @@ namespace DetroitHills.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return (RedirectToAction("Index", "Home"));
+        }
+
+        public ActionResult Register()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -77,6 +85,14 @@ namespace DetroitHills.Controllers
             return View();
         }
 
+        public ActionResult Videos()
+        {
+            VideoBL videoBL = new VideoBL();
+            VideoVM videoList = new VideoVM();
+            videoList.videos = videoBL.GetVideos();
+            videoList.videos.Reverse();
+            return View(videoList);
+        }
 
 
     }

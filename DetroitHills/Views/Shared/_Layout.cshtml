@@ -41,15 +41,27 @@
                                     <li><a href="">Tour</a></li>
                                     <li><a href="">Shop</a></li>
                                 </ul>
-
+                                @if (Session["login"] == null)
+                                {
                                 <!-- Login/Register Button -->
                                 <div class="login-register-cart-button d-flex align-items-center">
 
                                     <div class="login-register-btn mr-50">
-                                        <a href="" id="loginBtn">Login / Register</a>
+                                        <a href="@Url.Action("Login", "Home")" id="loginBtn">Login / Register</a>
                                     </div>
 
                                 </div>
+                                }
+                                else
+                                {
+                                    <div class="login-register-cart-button d-flex align-items-center">
+
+                                        <div class="login-register-btn mr-50">
+                                            <a href="@Url.Action("Logout", "Home")" id="loginBtn">Log Out</a>
+                                        </div>
+
+                                    </div>
+                                }
                             </div>
                             <!-- Nav End -->
 
