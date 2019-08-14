@@ -94,6 +94,64 @@ namespace DetroitHills.Controllers
             return View(videoList);
         }
 
+        public ActionResult Tour()
+        {
+            TourBL tourBL = new TourBL();
+            TourVM tour = new TourVM();
+            tour.tourList = tourBL.GetTour();
+            
+            return View(tour);
+        }
+
+        public ActionResult Shop()
+        {
+            ItemBL itemBL = new ItemBL();
+            ShopVM shopVM = new ShopVM();
+            shopVM.shop = itemBL.GetItems();
+            return View(shopVM);
+        }
+
+        public ActionResult Photos()
+        {
+            PhotosBL photosBL = new PhotosBL();
+            PhotosVM photosVM = new PhotosVM();
+
+            List<Photo> list = photosBL.GetPhotos();
+            int i, n, j;
+            
+
+            if (list!=null)
+            {
+                n = 1;
+                for (i = 1; i < list.Count; i++)
+                {
+
+                    if (list[i].photoalbum != list[i - 1].photoalbum)
+                        n += 1;
+                }
+
+                for (i=0; i<n; i++)
+                {
+                    List<Photo> tmp = new List<Photo>();
+                    tmp.Add(list[0]);
+                    for (j=1; j< list.Count; j++)
+                    {
+                        if (list[j].photoalbum != list[j - 1].photoalbum)
+                            break;
+                        else
+                        {
+                            tmp.Add(list[j]);
+                            list.RemoveAt(j);
+                        }                            
+                    }
+                    photosVM.albums.Add(tmp);
+                }
+            }
+            
+
+            return View(photosVM);
+        }
+
 
     }
 }

@@ -1,0 +1,40 @@
+﻿@model DetroitHills.ViewModels.ShopVM
+@{
+    ViewBag.Title = "Shop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ##### Breadcumb Area Start ##### -->
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Shop</h2>
+    </div>
+</section>
+
+<!-- ##### Events Area Start ##### -->
+<section class="events-area section-padding-100">
+    <div class="container">
+        <div class="row">
+
+            <!-- Single Event Area -->
+            @foreach (var u in Model.shop)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-event-area mb-30">
+                        <div class="event-thumbnail">
+                            <img src="@Html.DisplayFor(m => u.photo)" alt="">
+                        </div>
+                        <div class="event-text">
+                            <h4>@Html.DisplayFor(m => u.name)</h4>
+                            <div class="event-meta-data">
+                                <a href="#">@Html.DisplayFor(m => u.price)</a>
+                            </div>
+                            <a href="#" class="btn see-more-btn">Buy</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>

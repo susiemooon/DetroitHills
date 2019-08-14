@@ -27,7 +27,7 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                    <li><a href="">News</a></li>
+                                    <li><a href="@Url.Action("News", "Home")">News</a></li>
                                     <li>
                                         <a href="">Albums</a>
                                         <ul class="dropdown">
@@ -36,10 +36,10 @@
                                             <li><a href="@Url.Action("Memory", "Home")">Memory (2016)</a></li>
 
                                         </ul>
-                                    <li><a href="">Videos</a></li>
-                                    <li><a href="">Photos</a></li>
-                                    <li><a href="">Tour</a></li>
-                                    <li><a href="">Shop</a></li>
+                                    <li><a href="@Url.Action("Videos", "Home")">Videos</a></li>
+                                    <li><a href="@Url.Action("Photos", "Home")">Photos</a></li>
+                                    <li><a href="@Url.Action("Tour", "Home")">Tour</a></li>
+                                    <li><a href="@Url.Action("Shop", "Home")">Shop</a></li>
                                 </ul>
                                 @if (Session["login"] == null)
                                 {

@@ -27,19 +27,19 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="@Url.Action("Index", "Admin")">Home</a></li>
-                                    <li><a href="">News</a></li>
+                                    <li><a href="@Url.Action("News", "Admin")">News</a></li>
                                     <li>
                                         <a href="">Albums</a>
                                         <ul class="dropdown">
-                                            <li><a href="">Worldplace (2013)</a></li>
-                                            <li><a href="">Delight (2015)</a></li>
-                                            <li><a href="">Memory (2016)</a></li>
+                                            <li><a href="@Url.Action("Worldplace", "Admin")">Worldplace (2013)</a></li>
+                                            <li><a href="@Url.Action("Delight", "Admin")">Delight (2015)</a></li>
+                                            <li><a href="@Url.Action("Memory", "Admin")">Memory (2016)</a></li>
 
                                         </ul>
-                                    <li><a href="">Videos</a></li>
-                                    <li><a href="">Photos</a></li>
-                                    <li><a href="">Tour</a></li>
-                                    <li><a href="">Shop</a></li>
+                                    <li><a href="@Url.Action("Videos", "Admin")">Videos</a></li>
+                                    <li><a href="@Url.Action("Photos", "Admin")">Photos</a></li>
+                                    <li><a href="@Url.Action("Tour", "Admin")">Tour</a></li>
+                                    <li><a href="@Url.Action("Shop", "Admin")">Shop</a></li>
                                 </ul>
 
                                 @if (Session["login"] == null)

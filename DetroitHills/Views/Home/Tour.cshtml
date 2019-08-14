@@ -1,0 +1,43 @@
+﻿@model DetroitHills.ViewModels.TourVM
+@{
+    ViewBag.Title = "Tour";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/tour_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Tour</h2>
+    </div>
+</section>
+
+<section class="section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <table>
+                <thead>
+                    <tr class="table100-head">
+                        <th class="column1">Date</th>
+                        <th class="column2">Name</th>
+                        <th class="column3">Place</th>
+                        <th class="column4">
+                        </th>
+                    </tr>
+                </thead>
+@foreach (var u in Model.tourList)
+{
+                <tbody class="table100-body">
+                    <tr>
+                        <td class="column1">@Html.DisplayFor(m => u.tourDate)</td>
+                        <td class="column2">@Html.DisplayFor(m => u.name)</td>
+                        <td class="column3">@Html.DisplayFor(m => u.place)</td>
+                        <td class="column4"><button class="btn oneMusic-btn mt-3" type="submit">Tickets</button></td>
+                    </tr>
+                    
+                </tbody>
+}
+            </table>
+        </div>
+    </div>
+</section>
+
+

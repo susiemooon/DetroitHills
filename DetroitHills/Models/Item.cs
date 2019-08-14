@@ -14,6 +14,8 @@ namespace DetroitHills.Models
 
         public string name { get; set; }
 
+        public string photo { get; set; }
+
         public string price { get; set; }
 
         public string price_lng { get; set; }
