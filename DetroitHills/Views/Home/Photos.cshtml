@@ -1,0 +1,49 @@
+﻿@model DetroitHills.ViewModels.PhotosVM
+@{
+    ViewBag.Title = "Photos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/photo_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Photos</h2>
+    </div>
+</section>
+
+@foreach (var u in Model.albums)
+{
+    <section class="latest-albums-area section-padding-100-0">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading-photo">
+                    <h2>@Html.DisplayFor(m => u[0].photoalbum)</h2>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="albums-slideshow owl-carousel">
+                    @foreach (var p in u)
+                    {
+                        <!-- Single Album -->
+                    <div class="single-album">
+                        <img src="@Html.DisplayFor(m => p.path)" alt="">
+
+                    </div>
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+}
+
+
+
+<section class="section-padding-100-0"></section>
+

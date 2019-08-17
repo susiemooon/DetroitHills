@@ -118,10 +118,13 @@ namespace DetroitHills.Controllers
 
             List<Photo> list = photosBL.GetPhotos();
             int i, n, j;
+
+            photosVM.albums = new List<List<Photo>>();
             
 
             if (list!=null)
             {
+                
                 n = 1;
                 for (i = 1; i < list.Count; i++)
                 {
@@ -130,25 +133,29 @@ namespace DetroitHills.Controllers
                         n += 1;
                 }
 
-                for (i=0; i<n; i++)
+                for (i = 0; i < n; i++)
                 {
+                    
                     List<Photo> tmp = new List<Photo>();
                     tmp.Add(list[0]);
-                    for (j=1; j< list.Count; j++)
+
+                    for (j = 0; j < list.Count; j++)
                     {
-                        if (list[j].photoalbum != list[j - 1].photoalbum)
+                        if (list[1].photoalbum != list[0].photoalbum)
                             break;
                         else
                         {
-                            tmp.Add(list[j]);
-                            list.RemoveAt(j);
-                        }                            
+                            tmp.Add(list[1]);
+                            list.RemoveAt(0);
+                        }
                     }
                     photosVM.albums.Add(tmp);
+                    list.RemoveAt(0);
                 }
+                
             }
-            
 
+            
             return View(photosVM);
         }
 
