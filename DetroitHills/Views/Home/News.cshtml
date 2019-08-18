@@ -1,0 +1,52 @@
+﻿@model DetroitHills.ViewModels.NewsVM
+@{
+    ViewBag.Title = "News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/news_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>News</h2>
+    </div>
+</section>
+
+<!-- ##### Blog Area Start ##### -->
+<div class="blog-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                @foreach (var u in Model.posts)
+                {
+                    <!-- Single Post Start -->
+                <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
+                    <!-- Post Thumb -->
+                    <div class="blog-post-thumb mt-30">
+                        <a href="#"><img src="@Html.DisplayFor(m => u.image)" alt=""></a>
+                        <!-- Post Date -->
+                        <div class="post-date">
+                            <span>@Html.DisplayFor(m => u.date.Day)</span>
+                            <span>@Html.DisplayFor(m => u.date.Month) @Html.DisplayFor(m => u.date.Year)</span>
+                        </div>
+                    </div>
+
+                    <!-- Blog Content -->
+                    <div class="blog-content">
+                        <!-- Post Title -->
+                        <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
+                        <!-- Post Meta -->
+                        <div class="post-meta d-flex mb-30">
+                            <p class="tags">2 Comments</p> <!-- TO DO-->
+                            <p class="tags"><a href="@Url.Action("Post","Home", new { id = u.PostId })">See More</a></p>
+                        </div>
+                        <!-- <p>Работать ему надо, пидрила эдакая, вон Лиам Галлагер перед Оазис на пособие жил и нормально, зато в люди выбился</p> -->
+                        <p>@u.text.Substring(0, 30) ... </p>
+                    </div>
+                </div>
+                }
+                              
+               
+            </div>
+        </div>
+    </div>
+</div>
+        

@@ -154,11 +154,27 @@ namespace DetroitHills.Controllers
                 }
                 
             }
-
             
             return View(photosVM);
         }
 
+        public ActionResult News()
+        {
+            PostBL postBL = new PostBL();
+            NewsVM news = new NewsVM();
+            news.posts = postBL.GetPosts();
+            news.posts.Reverse();
+            return View(news);
+        }
+
+        public ActionResult Post(int id)
+        {
+            PostBL postBL = new PostBL();
+            List<Post> list = postBL.GetPosts();
+            Post post = list.Where(u => u.PostId == id).Single();
+            return View("Post", post);
+
+        }
 
     }
 }

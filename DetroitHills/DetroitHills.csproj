@@ -228,6 +228,7 @@
     <Compile Include="Models\Photo.cs" />
     <Compile Include="Models\PhotosBL.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostBL.cs" />
     <Compile Include="Models\Tour.cs" />
     <Compile Include="Models\TourBL.cs" />
     <Compile Include="Models\User.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\VideoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\NewsVM.cs" />
     <Compile Include="ViewModels\PhotosVM.cs" />
     <Compile Include="ViewModels\ShopVM.cs" />
     <Compile Include="ViewModels\TourVM.cs" />
@@ -267,6 +269,8 @@
     <Content Include="Views\Home\Tour.cshtml" />
     <Content Include="Views\Home\Shop.cshtml" />
     <Content Include="Views\Home\Photos.cshtml" />
+    <Content Include="Views\Home\News.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

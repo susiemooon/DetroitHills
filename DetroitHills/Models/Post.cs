@@ -24,7 +24,7 @@ namespace DetroitHills.Models
 
         public DateTime date { get; set; }
 
-
+        public string image { get; set; }
 
     }
 }

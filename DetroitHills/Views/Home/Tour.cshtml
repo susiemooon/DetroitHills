@@ -27,7 +27,7 @@
 {
                 <tbody class="table100-body">
                     <tr>
-                        <td class="column1">@Html.DisplayFor(m => u.tourDate)</td>
+                        <td class="column1">@Html.DisplayFor(m => u.tourDate.Day)/@Html.DisplayFor(m => u.tourDate.Month)/@Html.DisplayFor(m => u.tourDate.Year)</td>
                         <td class="column2">@Html.DisplayFor(m => u.name)</td>
                         <td class="column3">@Html.DisplayFor(m => u.place)</td>
                         <td class="column4"><button class="btn oneMusic-btn mt-3" type="submit">Tickets</button></td>

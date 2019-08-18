@@ -1,0 +1,25 @@
+﻿@model DetroitHills.Models.Post
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(@Html.DisplayFor(m => Model.image));">
+    <div class="bradcumbContent">
+        <h2>@Html.DisplayFor(m => Model.title)</h2>
+    </div>
+</section>
+
+<div class="blog-area section-padding-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-9">
+                @Html.DisplayFor(m=> Model.text)
+                </div>
+            </div>
+        </div>
+    </div>
+<div>
+    Comments тут короче вью модель с комментами и постом и плюс штука чтоб добавлять комменты
+</div>
+
