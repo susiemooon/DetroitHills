@@ -236,6 +236,7 @@
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\VideoBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CreatePostVM.cs" />
     <Compile Include="ViewModels\NewsVM.cs" />
     <Compile Include="ViewModels\PhotosVM.cs" />
     <Compile Include="ViewModels\ShopVM.cs" />
@@ -263,7 +264,6 @@
     <Content Include="Views\Home\Delight.cshtml" />
     <Content Include="Views\Home\Memory.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Videos.cshtml" />
     <Content Include="Views\Home\Tour.cshtml" />
@@ -271,6 +271,8 @@
     <Content Include="Views\Home\Photos.cshtml" />
     <Content Include="Views\Home\News.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Admin\CreatePost.cshtml" />
+    <Content Include="Views\Admin\EditPost.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

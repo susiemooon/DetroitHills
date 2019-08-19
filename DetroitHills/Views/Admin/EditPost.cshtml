@@ -1,0 +1,44 @@
+﻿@model DetroitHills.Models.Post
+@{
+    ViewBag.Title = "EditPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/news_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Edit Post</h2>
+    </div>
+</section>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true);
+    @Html.HiddenFor(m => m.PostId)
+    @Html.HiddenFor(m => m.date)
+    @Html.HiddenFor(m => m.image)
+    <div>
+        <p style="font:800; color:white; font-size:large">Post Name:</p>
+        @Html.EditorFor(m => Model.title)
+    </div>
+
+    <div>
+        <p style="font:800; color:white; font-size:large">Post Name Rus:</p>
+        @Html.EditorFor(m => Model.title_lng)
+    </div>
+
+            <div>
+
+                @Html.EditorFor(m => Model.text)
+            </div>
+
+            <div>
+
+                @Html.EditorFor(m => Model.text_lng)
+            </div>
+
+            <input type="file" name="upload"/>
+
+            <input type="submit" class="btn btn-primary" value="Save" />
+
+}
+

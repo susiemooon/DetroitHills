@@ -53,9 +53,7 @@ namespace DetroitHills.Controllers
             {
                 Session["login"] = userName; 
                 FormsAuthentication.SetAuthCookie(userName, false);
-                if (userName == "admin")
-                    return RedirectToAction("Index", "Admin");
-                else
+                
                 return RedirectToAction("Index", "Home");
             }
         }
