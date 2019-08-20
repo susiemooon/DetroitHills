@@ -10,7 +10,7 @@
     </div>
 </section>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("EditPost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.ValidationSummary(true);
     @Html.HiddenFor(m => m.PostId)

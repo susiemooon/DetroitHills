@@ -1,0 +1,32 @@
+﻿@model DetroitHills.Models.Tour
+@{
+    ViewBag.Title = "AddConcert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/tour_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Add Concert</h2>
+    </div>
+</section>
+
+<section class="section-padding-100">
+    @using (Html.BeginForm("AddConcert", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <div>
+            <p style="font:800;  font-size:large">Date:</p>
+            @Html.EditorFor(m => Model.tourDate)
+        </div>
+        <div>
+            <p style="font:800; font-size:large">Name:</p>
+            @Html.EditorFor(m => Model.name)
+        </div>
+        <div>
+            <p style="font:800;  font-size:large">Place:</p>
+            @Html.EditorFor(m => Model.place)
+        </div>
+            
+
+            <input type="submit" class="oneMusic-btn" value="Save" />
+    }
+    </section>

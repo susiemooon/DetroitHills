@@ -11,8 +11,16 @@
 </section>
 
 <section class="section-padding-100">
+    @if (Session["login"] != null)
+    {
+        if (Session["login"].ToString().Equals("admin"))
+        {
+            <button href="@Url.Action("AddConcert", "Admin")" value="Add Concert" />
+        }
+    }
     <div class="container">
         <div class="row justify-content-center">
+
             <table>
                 <thead>
                     <tr class="table100-head">
@@ -31,6 +39,20 @@
                         <td class="column2">@Html.DisplayFor(m => u.name)</td>
                         <td class="column3">@Html.DisplayFor(m => u.place)</td>
                         <td class="column4"><button class="btn oneMusic-btn mt-3" type="submit">Tickets</button></td>
+                        @if (Session["login"] != null)
+                        {
+                            if (Session["login"].ToString().Equals("admin"))
+                            {
+                                <td class="column4">
+                                    <button href="@Url.Action("EditConcert", "Admin", new { id = u.TourId })" value="Edit" /> |
+                                    @using (Html.BeginForm("DeleteConcert", "Admin", new { id = u.TourId }))
+                                    {
+                                    <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
+                                    }
+                                </td>
+                            }
+                        }
+                               
                     </tr>
                     
                 </tbody>

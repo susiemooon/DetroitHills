@@ -40,6 +40,13 @@
                                     <li><a href="@Url.Action("Photos", "Home")">Photos</a></li>
                                     <li><a href="@Url.Action("Tour", "Home")">Tour</a></li>
                                     <li><a href="@Url.Action("Shop", "Home")">Shop</a></li>
+                                    @if (Session["login"] != null)
+                                    {
+                                        if (Session["login"].ToString().Equals("admin"))
+                                        {
+                                            <li><a href="@Url.Action("AdminPanel", "Admin")">Admin Panel</a></li>
+                                        }
+                                    }
                                 </ul>
                                 @if (Session["login"] == null)
                                 {

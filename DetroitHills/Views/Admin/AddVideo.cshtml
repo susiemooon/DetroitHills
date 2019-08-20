@@ -1,0 +1,28 @@
+﻿@model DetroitHills.Models.Video
+@{
+    ViewBag.Title = "AddVideo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/video_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Add Video</h2>
+    </div>
+</section>
+
+<div class="blog-area section-padding-100">
+    @using (Html.BeginForm("AddVideo", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <div>
+            <p style="font:800;  font-size:large">Video Name:</p>
+            @Html.EditorFor(m => Model.name)
+        </div>
+        <div>
+            <p style="font:800; font-size:large">Link:</p>
+            @Html.EditorFor(m => Model.link)
+        </div>
+        
+
+            <input type="submit" class="oneMusic-btn" value="Save" />
+    }
+    </div>

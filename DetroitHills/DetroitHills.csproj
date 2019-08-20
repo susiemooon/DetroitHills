@@ -259,7 +259,6 @@
     <Content Include="Assets\fonts\icomoon.eot" />
     <Content Include="Assets\fonts\icomoon.ttf" />
     <Content Include="Assets\fonts\icomoon.woff" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\Worldplace.cshtml" />
     <Content Include="Views\Home\Delight.cshtml" />
     <Content Include="Views\Home\Memory.cshtml" />
@@ -273,6 +272,10 @@
     <Content Include="Views\Home\Post.cshtml" />
     <Content Include="Views\Admin\CreatePost.cshtml" />
     <Content Include="Views\Admin\EditPost.cshtml" />
+    <Content Include="Views\Admin\AddVideo.cshtml" />
+    <Content Include="Views\Admin\EditVideo.cshtml" />
+    <Content Include="Views\Admin\AddConcert.cshtml" />
+    <Content Include="Views\Admin\EditConcert.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

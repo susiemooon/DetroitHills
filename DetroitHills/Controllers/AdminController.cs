@@ -88,5 +88,108 @@ namespace DetroitHills.Controllers
 
             return RedirectToAction("News", "Home", news);
         }
+
+        public ActionResult AddVideo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddVideo(Video v)
+        {
+            VideoBL videoBL = new VideoBL();
+            if (ModelState.IsValid)
+            {
+                videoBL.AddVideo(v);
+                return RedirectToAction("Videos", "Home");
+            }
+            return View();
+        }
+
+        public ActionResult EditVideo (int id)
+        {
+            VideoBL videoBL = new VideoBL();
+            List<Video> postList = videoBL.GetVideos();
+            Video video = postList.Where(u => u.VideoId == id).Single();
+            return View(video);
+        }
+
+        [HttpPost]
+        public ActionResult EditVideo(Video v)
+        {
+            VideoBL videoBL = new VideoBL();
+            if (ModelState.IsValid)
+            {
+                videoBL.EditVideo(v);
+                return RedirectToAction("Videos", "Home");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteVideo(int id)
+        {
+            VideoBL videoBL = new VideoBL();
+            List<Video> postList = videoBL.GetVideos();
+            Video video = postList.Where(u => u.VideoId == id).Single();
+            videoBL.DeleteVideo(video);
+
+            VideoVM v = new VideoVM();
+            v.videos = videoBL.GetVideos();
+            v.videos.Reverse();
+
+            return RedirectToAction("Videos", "Home", v);
+        }
+
+        public ActionResult AddConcert()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddConcert(Tour t)
+        {
+            TourBL tourBL = new TourBL();
+            if (ModelState.IsValid)
+            {
+                tourBL.AddConcert(t);
+                return RedirectToAction("Tour", "Home");
+            }
+            return View();
+        }
+
+        public ActionResult EditConcert(int id)
+        {
+            TourBL tourBL = new TourBL();
+            List<Tour> postList = tourBL.GetTour();
+            Tour tour = postList.Where(u => u.TourId == id).Single();
+            return View(tour);
+        }
+
+        [HttpPost]
+        public ActionResult EditConcert(Tour t)
+        {
+            TourBL tourBL = new TourBL();
+            if (ModelState.IsValid)
+            {
+                tourBL.EditConcert(t);
+                return RedirectToAction("Tour", "Home");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteConcert(int id)
+        {
+            TourBL tourBL = new TourBL();
+            List<Tour> postList = tourBL.GetTour();
+            Tour tour = postList.Where(u => u.TourId == id).Single();
+            tourBL.DeleteConcert(tour);
+
+            TourVM t = new TourVM();
+            t.tourList = tourBL.GetTour();
+            
+            return RedirectToAction("Tour", "Home", t);
+        }
     }
 }
