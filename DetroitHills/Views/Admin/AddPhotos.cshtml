@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "AddPhotos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/photo_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Add Photos</h2>
+    </div>
+</section>
+
+@using (Html.BeginForm("AddPhotos", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+                <p style="font:800; font-size:large">Album Name</p>
+                <input type="text" name="albumname" placeholder="Album Name"/>
+
+                <p style="font:800; font-size:large">Upload images</p>
+                <p><input type="file" name="uploads" /></p>
+                <p><input type="file" name="uploads" /></p>
+                <p><input type="file" name="uploads" /></p>
+                <p><input type="file" name="uploads" /></p>
+                <p><input type="file" name="uploads" /></p>
+
+                <p><input type="submit" value="Save"/></p>
+
+}

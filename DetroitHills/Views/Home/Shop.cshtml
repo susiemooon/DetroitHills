@@ -28,6 +28,19 @@
                             <h4>@Html.DisplayFor(m => u.name)</h4>
                             <div class="event-meta-data">
                                 <a href="#">@Html.DisplayFor(m => u.price)</a>
+                                @if (Session["login"] != null)
+                                {
+                                    if (Session["login"].ToString().Equals("admin"))
+                                    {
+                                        
+                                            <a href="@Url.Action("EditItem", "Admin", new { id = u.ItemId })" value="Edit" /> 
+                                            using (Html.BeginForm("DeleteItem", "Admin", new { id = u.ItemId }))
+                                            {
+                                                <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
+                                            }
+                                        
+                                    }
+                                }
                             </div>
                             <a href="#" class="btn see-more-btn">Buy</a>
                         </div>

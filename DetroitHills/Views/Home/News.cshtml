@@ -10,12 +10,6 @@
     </div>
 </section>
 
-
-
-@if (Session["login"] != null)
-{
-    if (Session["login"].ToString().Equals("admin"))
-    {
     <section>
         <!-- ##### Blog Area Start ##### -->
         <div class="blog-area section-padding-100">
@@ -44,14 +38,18 @@
                                     <div class="post-meta d-flex mb-30">
                                         <p class="tags">2 Comments</p> <!-- TO DO-->
                                         <p class="tags" style="font-weight:600"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
-                                       
+                                       @if (Session["login"] != null)
+                                       {
+                                           if (Session["login"].ToString().Equals("admin"))
+                                           {
                                             <p class="tags" style="font-weight:600"><a href="@Url.Action("EditPost", "Admin", new { id = u.PostId })">Edit Post</a></p>
-                                            @using (Html.BeginForm("DeletePost", "Admin", new { id = u.PostId }))
+                                            using (Html.BeginForm("DeletePost", "Admin", new { id = u.PostId }))
                                             {
                                                 <p class="tags" style="font-weight:600"><button type="submit">Delete Post</button></p>
                                             }
+                                           }
+                                       }
 
-                                        
                                     </div>
                                     <!-- <p>Работать ему надо, пидрила эдакая, вон Лиам Галлагер перед Оазис на пособие жил и нормально, зато в люди выбился</p> -->
                                     <p>@u.text.Substring(0, 50) ... </p>
@@ -59,113 +57,11 @@
                             </div>
                         }
 
-                        <div class="col-12 col-lg-3">
-                            <div class="blog-sidebar-area">
-
-                                <!-- Widget Area -->
-                                <div class="single-widget-area mb-30">
-                                    <div class="widget-title">
-                                        <button href="@Url.Action("CreatePost", "Admin")" value="Create New Post" />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    }
-    else
-    {
-    <section>
-        <!-- ##### Blog Area Start ##### -->
-        <div class="blog-area section-padding-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-9">
-                        @foreach (var u in Model.posts)
-                        {
-                    <!-- Single Post Start -->
-                            <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                                <!-- Post Thumb -->
-                                <div class="blog-post-thumb mt-30">
-                                    <a href="#"><img src="@Html.DisplayFor(m => u.image)" alt=""></a>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <span>@Html.DisplayFor(m => u.date.Day)</span>
-                                        <span>@Html.DisplayFor(m => u.date.Month) @Html.DisplayFor(m => u.date.Year)</span>
-                                    </div>
-                                </div>
-
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <!-- Post Title -->
-                                    <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
-                                    <!-- Post Meta -->
-                                    <div class="post-meta d-flex mb-30">
-                                        <p class="tags">2 Comments</p> <!-- TO DO-->
-                                        <p class="tags" style="font-weight:600"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
-                                        
-                                    </div>
-                                    <!-- <p>Работать ему надо, пидрила эдакая, вон Лиам Галлагер перед Оазис на пособие жил и нормально, зато в люди выбился</p> -->
-                                    <p>@u.text.Substring(0, 50) ... </p>
-                                </div>
-                            </div>
-                        }
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    }
-}
-else
-{
-    <section>
-        <!-- ##### Blog Area Start ##### -->
-        <div class="blog-area section-padding-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-9">
-                        @foreach (var u in Model.posts)
-                        {
-                    <!-- Single Post Start -->
-                            <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                                <!-- Post Thumb -->
-                                <div class="blog-post-thumb mt-30">
-                                    <a href="#"><img src="@Html.DisplayFor(m => u.image)" alt=""></a>
-                                    <!-- Post Date -->
-                                    <div class="post-date">
-                                        <span>@Html.DisplayFor(m => u.date.Day)</span>
-                                        <span>@Html.DisplayFor(m => u.date.Month) @Html.DisplayFor(m => u.date.Year)</span>
-                                    </div>
-                                </div>
-
-                                <!-- Blog Content -->
-                                <div class="blog-content">
-                                    <!-- Post Title -->
-                                    <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
-                                    <!-- Post Meta -->
-                                    <div class="post-meta d-flex mb-30">
-                                        <p class="tags">2 Comments</p> <!-- TO DO-->
-                                        <p class="tags" style="font-weight:600"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
-                                       
-                                    </div>
-                                    <!-- <p>Работать ему надо, пидрила эдакая, вон Лиам Галлагер перед Оазис на пособие жил и нормально, зато в люди выбился</p> -->
-                                    <p>@u.text.Substring(0, 50) ... </p>
-                                </div>
-                            </div>
-                        }
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-}
+   

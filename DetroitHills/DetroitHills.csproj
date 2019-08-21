@@ -276,6 +276,10 @@
     <Content Include="Views\Admin\EditVideo.cshtml" />
     <Content Include="Views\Admin\AddConcert.cshtml" />
     <Content Include="Views\Admin\EditConcert.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\AddPhotos.cshtml" />
+    <Content Include="Views\Admin\AddItem.cshtml" />
+    <Content Include="Views\Admin\EditItem.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -285,6 +289,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\img\photoalbums\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

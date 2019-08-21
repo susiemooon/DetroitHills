@@ -11,13 +11,7 @@
 </section>
 
 <section class="section-padding-100">
-    @if (Session["login"] != null)
-    {
-        if (Session["login"].ToString().Equals("admin"))
-        {
-            <button href="@Url.Action("AddConcert", "Admin")" value="Add Concert" />
-        }
-    }
+   
     <div class="container">
         <div class="row justify-content-center">
 

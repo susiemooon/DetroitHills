@@ -34,6 +34,17 @@
                         <img src="@Html.DisplayFor(m => p.path)" alt="">
 
                     </div>
+                    if (Session["login"] != null)
+                    {
+                        if (Session["login"].ToString().Equals("admin"))
+                        {
+                           
+                            using (Html.BeginForm("DeletePhoto", "Admin", new { id = p.PhotoId }))
+                            {
+                                <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
+                            }
+                        }
+                    }
                     }
                     
                 </div>

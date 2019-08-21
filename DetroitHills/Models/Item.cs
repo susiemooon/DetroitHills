@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DetroitHills.Models
 {
@@ -19,5 +20,8 @@ namespace DetroitHills.Models
         public string price { get; set; }
 
         public string price_lng { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase upload { get; set; }
     }
 }

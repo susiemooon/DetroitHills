@@ -191,5 +191,156 @@ namespace DetroitHills.Controllers
             
             return RedirectToAction("Tour", "Home", t);
         }
+
+        public ActionResult AddItem()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddItem(Item p)
+        {
+            string filename = "shop_back.jpg";
+            if (p.upload != null)
+            {
+                filename = System.IO.Path.GetFileName(p.upload.FileName);
+                p.upload.SaveAs(Server.MapPath("~/Assets/img/bg-img/" + filename));
+            }
+
+
+            p.photo = "/Assets/img/bg-img/" + filename;
+            
+            ItemBL itemBL = new ItemBL();
+            if (ModelState.IsValid)
+            {
+                itemBL.AddItem(p);
+                return RedirectToAction("Shop", "Home");
+            }
+            return View();
+
+        }
+
+        public ActionResult EditItem(int id)
+        {
+            ItemBL itemBL = new ItemBL();
+            List<Item> itemList = itemBL.GetItems();
+            Item item = itemList.Where(u => u.ItemId == id).Single();
+            return View(item);
+        }
+
+
+        [HttpPost]
+        public ActionResult EditItem(Item p)
+        {
+            if (p.upload != null)
+            {
+                string filename = System.IO.Path.GetFileName(p.upload.FileName);
+                p.upload.SaveAs(Server.MapPath("~/Assets/img/bg-img/" + filename));
+                p.photo = "/Assets/img/bg-img/" + filename;
+            }
+
+
+            if (ModelState.IsValid)
+            {
+                ItemBL itemBL = new ItemBL();
+                itemBL.EditItem(p);
+                return RedirectToAction("Shop", "Home");
+            }
+            return View(p);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteItem(int id)
+        {
+            ItemBL itemBL = new ItemBL();
+            List<Item> itemList = itemBL.GetItems();
+            Item item = itemList.Where(u => u.ItemId == id).Single();
+            itemBL.DeleteItem(item);
+
+            ShopVM shopVM = new ShopVM();
+            shopVM.shop = itemBL.GetItems();
+            
+            return RedirectToAction("Shop", "Home", shopVM);
+        }
+
+        public ActionResult AddPhotos()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddPhotos(string albumname, IEnumerable<HttpPostedFileBase> uploads)
+        {
+            PhotosBL photoBL = new PhotosBL();
+            foreach (var file in uploads)
+            {
+                if (file != null)
+                {
+                   string filename = System.IO.Path.GetFileName(file.FileName);
+                    file.SaveAs(Server.MapPath("~/Assets/img/photoalbums/" + filename));
+                    Photo p = new Photo();
+                    p.photoalbum = albumname;
+                    p.path = "/Assets/img/photoalbums/" + filename;
+                    photoBL.AddPhoto(p);
+                }
+            }
+
+            
+            return RedirectToAction("Photos", "Home");
+            
+
+        }
+
+        [HttpPost]
+        public ActionResult DeletePhoto(int id)
+        {
+            PhotosBL photoBL = new PhotosBL();
+            List<Photo> itemList = photoBL.GetPhotos();
+            Photo photo = itemList.Where(u => u.PhotoId == id).Single();
+            photoBL.DeletePhoto(photo);
+
+            PhotosVM photosVM = new PhotosVM();
+
+            List<Photo> list = photoBL.GetPhotos();
+            int i, n, j;
+
+            photosVM.albums = new List<List<Photo>>();
+
+
+            if (list != null)
+            {
+
+                n = 1;
+                for (i = 1; i < list.Count; i++)
+                {
+
+                    if (list[i].photoalbum != list[i - 1].photoalbum)
+                        n += 1;
+                }
+
+                for (i = 0; i < n; i++)
+                {
+
+                    List<Photo> tmp = new List<Photo>();
+                    tmp.Add(list[0]);
+
+                    for (j = 0; j < list.Count; j++)
+                    {
+                        if (list[1].photoalbum != list[0].photoalbum)
+                            break;
+                        else
+                        {
+                            tmp.Add(list[1]);
+                            list.RemoveAt(0);
+                        }
+                    }
+                    photosVM.albums.Add(tmp);
+                    list.RemoveAt(0);
+                }
+
+            }
+
+            return RedirectToAction("Photos", "Home", photosVM);
+        }
     }
 }
