@@ -1,0 +1,51 @@
+﻿@model DetroitHills.ViewModels.OrderVM
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>New Order</h2>
+    </div>
+</section>
+
+<section class="section-padding-100">
+    <div class="col-12 col-md-6 col-lg-4">
+        <div class="single-event-area mb-30">
+            <div class="event-thumbnail">
+                <img src="@Html.DisplayFor(m=> Model.item.photo)" alt="">
+            </div>
+            <div class="event-text">
+                <h4>@Html.DisplayFor(m => Model.item.name)</h4>
+                <h4>@Html.DisplayFor(m => Model.item.price)</h4>
+                </div>
+            </div>
+        </div>
+
+                @using (Html.BeginForm("Order", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                    @Html.ValidationSummary(true);
+                    @Html.HiddenFor(m => Model.order.item)
+                    <div>
+                        <p style="font:800;  font-size:large">Amount:</p>
+                        @Html.EditorFor(m => Model.order.amount)
+                    </div>
+                    <div>
+                        <p style="font:800; font-size:large">Adress:</p>
+                        @Html.EditorFor(m => Model.order.adress)
+                    </div>
+                    <div>
+                        <p style="font:800;  font-size:large">Phone:</p>
+                        @Html.EditorFor(m => Model.order.phone)
+                    </div>
+                    <div>
+                        <p style="font:800;  font-size:large">Size if necessary (S, M, L, XL):</p>
+                        @Html.EditorFor(m => Model.order.size)
+                    </div>
+
+                    
+                    
+                    <input type="submit" class="oneMusic-btn" value="Make Order" />
+                }
+</section>

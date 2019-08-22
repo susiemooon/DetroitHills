@@ -6,9 +6,10 @@ using DetroitHills.Models;
 
 namespace DetroitHills.ViewModels
 {
-    public class CreatePostVM
+    public class OrderVM
     {
-        public Post p { get; set; }
-        public HttpPostedFileBase upload { get; set; }
+        public Item item { get; set; }
+        public Order order { get; set; }
+        
     }
 }

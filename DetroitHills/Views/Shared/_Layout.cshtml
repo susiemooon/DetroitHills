@@ -46,6 +46,10 @@
                                         {
                                             <li><a href="@Url.Action("Index", "Admin")">Admin Panel</a></li>
                                         }
+                                        else
+                                        {
+                                            <li><a href="@Url.Action("MyOrders", "Home")">My Orders</a></li>
+                                        }
                                     }
                                 </ul>
                                 @if (Session["login"] == null)

@@ -21,6 +21,6 @@ namespace DetroitHills.DAL
         public DbSet<Tour> TourDB { get; set; }
         public DbSet<User> UserDB { get; set; }
         public DbSet<Video> VideoDB { get; set; }
-
+        public DbSet<Order> OrderDB { get; set; }
     }
 }

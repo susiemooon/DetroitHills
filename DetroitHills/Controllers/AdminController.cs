@@ -342,5 +342,33 @@ namespace DetroitHills.Controllers
 
             return RedirectToAction("Photos", "Home", photosVM);
         }
+
+        public ActionResult Orders()
+        {
+            OrderBL orderBL = new OrderBL();
+            MyOrdersVM list = new MyOrdersVM();
+
+            list.orders = orderBL.GetOrders();
+
+            return View(list);
+        }
+
+        public ActionResult EditOrder(int id)
+        {
+            OrderBL orderBL = new OrderBL();
+            List<Order> list = orderBL.GetOrders();
+            Order o = list.Where(u => u.OrderId == id).Single();
+
+            return View(o);
+        }
+
+        [HttpPost]
+        public ActionResult EditOrder(Order o)
+        {
+            OrderBL obl = new OrderBL();
+            obl.EditOrder(o);
+
+            return RedirectToAction("Orders", "Admin");
+        }
     }
 }

@@ -13,6 +13,8 @@
 <div style="text-align:center">
     @using (Html.BeginForm("EditItem", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
+        @Html.ValidationSummary(true);
+        @Html.HiddenFor(m => m.ItemId)
         <div>
             <p style="font:800;  font-size:large">Name:</p>
             @Html.EditorFor(m => Model.name)

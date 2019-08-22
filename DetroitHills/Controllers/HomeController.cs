@@ -174,5 +174,51 @@ namespace DetroitHills.Controllers
 
         }
 
+        [Authorize]
+        public ActionResult Order(int id)
+        {
+            ItemBL orderBL = new ItemBL();
+            List<Item> list = orderBL.GetItems();
+            Item item = list.Where(u => u.ItemId == id).Single();
+            
+            OrderVM orderVM = new OrderVM();
+            orderVM.item = item;
+            orderVM.order = new Models.Order();
+            orderVM.order.item = item.name;
+            return View("Order", orderVM);
+        }
+
+        [HttpPost]
+        public ActionResult Order(OrderVM oVM)
+        {
+            OrderBL orderBL = new OrderBL();
+            Order o = oVM.order;
+            o.username = Session["login"].ToString();
+            o.status = "In Process";
+            o.status_lng = "В Процессе";
+            if (ModelState.IsValid)
+            {
+                orderBL.AddOrder(o);
+            }
+            return RedirectToAction("MyOrders");
+        }
+
+        [Authorize]
+        public ActionResult MyOrders()
+        {
+            OrderBL orderBL = new OrderBL();
+            List<Order> list = orderBL.GetOrders();
+            string user = Session["login"].ToString();
+            MyOrdersVM myorders = new MyOrdersVM();
+            List<Order> tmp = new List<Models.Order>();
+            foreach (Order o in list)
+            {
+                if (o.username == user)
+                    tmp.Add(o);
+            }
+            myorders.orders = tmp;
+                
+            return View(myorders);
+        }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model DetroitHills.ViewModels.MyOrdersVM
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Orders</h2>
+    </div>
+</section>
+
+<section class="section-padding-100">
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <table>
+                <thead>
+                    <tr class="table100-head">
+                        <th class="column1">User</th>
+                        <th class="column2">Status</th>
+                        <th class="column3">Item</th>
+                        <th class="column4">Phone/Adress</th>
+                    </tr>
+                </thead>
+                @foreach (var u in Model.orders)
+                {
+                    <tbody class="table100-body">
+                        <tr>
+                            <td class="column1">@Html.DisplayFor(m => u.username)</td>
+                            <td class="column2">@Html.DisplayFor(m => u.status)</td>
+                            <td class="column3">@Html.DisplayFor(m => u.item) (@Html.DisplayFor(m=> u.amount))</td>
+                            <td class="column4">@Html.DisplayFor(m=> u.phone) @Html.DisplayFor(m=> u.adress)</td>
+                            <td>@Html.ActionLink("Edit", "EditOrder", new { id = u.OrderId })</td>
+                        </tr>
+
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+</section>
