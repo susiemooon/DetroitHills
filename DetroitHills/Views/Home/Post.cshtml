@@ -19,7 +19,9 @@
             </div>
         </div>
     </div>
-<div>
-    Comments тут короче вью модель с комментами и постом и плюс штука чтоб добавлять комменты
+<div class="blog-area section-padding-100">
+    
+        @Html.Action("NewComment", "Home", new { postId = Model.PostId })
+    
 </div>
 

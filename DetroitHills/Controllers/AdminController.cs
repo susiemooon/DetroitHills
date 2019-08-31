@@ -34,7 +34,7 @@ namespace DetroitHills.Controllers
             
             p.image = "/Assets/img/bg-img/" + filename;
             p.date = DateTime.Now;
-
+            p.numOfComments = 0;
             PostBL postBL = new PostBL();
             if (ModelState.IsValid)
             {

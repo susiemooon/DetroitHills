@@ -220,5 +220,44 @@ namespace DetroitHills.Controllers
                 
             return View(myorders);
         }
+
+        
+        public ActionResult NewComment(int postId)
+        {
+            CommentBL commentBL = new CommentBL();
+            CommentsVM comVM = new CommentsVM();
+            comVM.commentsList = commentBL.FindComments(postId);
+            comVM.commentsList.Reverse();
+            comVM.newComment = new Comment();
+            comVM.newComment.PostId = postId;
+            if (Session["login"]!= null)
+                 comVM.newComment.userName = Session["login"].ToString();
+
+            return PartialView(comVM);
+        }
+
+
+        [HttpPost]        
+        public ActionResult NewComment(CommentsVM comVM)
+        {
+            comVM.newComment.date = DateTime.Now;
+
+            CommentBL commentBL = new CommentBL();
+            commentBL.AddComment(comVM.newComment);
+            int postId = comVM.newComment.PostId;
+            /*comVM.commentsList = commentBL.FindComments(postId);
+            comVM.commentsList.Reverse();
+            comVM.newComment = new Comment();
+            comVM.newComment.text = "";
+            comVM.newComment.PostId = postId;
+            if (Session["login"] != null)
+                comVM.newComment.userName = Session["login"].ToString();*/
+            PostBL postBL = new PostBL();
+            List<Post> list = postBL.GetPosts();
+            Post post = list.Where(u => u.PostId == postId).Single();
+            post.numOfComments += 1;
+
+            return PartialView("NewComment", comVM);
+        }
     }
 }

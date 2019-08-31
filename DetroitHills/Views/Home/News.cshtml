@@ -36,7 +36,7 @@
                                     <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
                                     <!-- Post Meta -->
                                     <div class="post-meta d-flex mb-30">
-                                        <p class="tags">2 Comments</p> <!-- TO DO-->
+                                        <p class="tags">@Html.DisplayFor(m=> u.numOfComments) Comments</p> <!-- TO DO-->
                                         <p class="tags" style="font-weight:600"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
                                        @if (Session["login"] != null)
                                        {

@@ -1,0 +1,30 @@
+﻿@model DetroitHills.ViewModels.CommentsVM
+
+@if (Session["login"] != null)
+{
+using (Html.BeginForm("NewComment", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => Model.newComment.CommentId)
+    @Html.HiddenFor(m => Model.newComment.PostId)
+    @Html.HiddenFor(m => Model.newComment.userName)
+
+   <p> @Html.EditorFor(m => Model.newComment.text) </p>
+
+    <input type="submit" class="oneMusic-btn" value="Send" />
+    }
+}
+else
+{
+    <p>To add comments you must @Html.ActionLink("Log In", "Login")</p>
+}
+
+<div class="blog-area section-padding-100">
+    @foreach(var u in Model.commentsList)
+    {
+        <div style="padding-bottom: 20px">
+            <p>@Html.DisplayFor(m=> u.userName)</p>
+            @Html.DisplayFor(m => u.date)
+            <p>@Html.DisplayFor(m => u.text)</p>
+        </div>
+    }
+</div>

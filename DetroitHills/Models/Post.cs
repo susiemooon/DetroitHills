@@ -27,6 +27,8 @@ namespace DetroitHills.Models
 
         public string image { get; set; }
 
+        public int numOfComments { get; set; }
+
         [NotMapped]
         public HttpPostedFileBase upload { get; set; }
 
