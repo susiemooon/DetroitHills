@@ -170,6 +170,8 @@ namespace DetroitHills.Controllers
             PostBL postBL = new PostBL();
             List<Post> list = postBL.GetPosts();
             Post post = list.Where(u => u.PostId == id).Single();
+
+            
             return View("Post", post);
 
         }
@@ -238,26 +240,23 @@ namespace DetroitHills.Controllers
 
 
         [HttpPost]        
-        public ActionResult NewComment(CommentsVM comVM)
+        public ActionResult CommentList(CommentsVM comVM)
         {
             comVM.newComment.date = DateTime.Now;
 
             CommentBL commentBL = new CommentBL();
             commentBL.AddComment(comVM.newComment);
             int postId = comVM.newComment.PostId;
-            /*comVM.commentsList = commentBL.FindComments(postId);
+            comVM.commentsList = commentBL.FindComments(postId);
             comVM.commentsList.Reverse();
-            comVM.newComment = new Comment();
-            comVM.newComment.text = "";
-            comVM.newComment.PostId = postId;
-            if (Session["login"] != null)
-                comVM.newComment.userName = Session["login"].ToString();*/
+            
             PostBL postBL = new PostBL();
             List<Post> list = postBL.GetPosts();
             Post post = list.Where(u => u.PostId == postId).Single();
             post.numOfComments += 1;
+            postBL.EditPost(post);
 
-            return PartialView("NewComment", comVM);
+            return PartialView("CommentList", comVM);
         }
     }
 }

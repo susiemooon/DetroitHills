@@ -2,8 +2,8 @@
 
 @if (Session["login"] != null)
 {
-using (Html.BeginForm("NewComment", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+    using (Ajax.BeginForm("CommentList", new AjaxOptions { UpdateTargetId = "results" }))
+    {
     @Html.HiddenFor(m => Model.newComment.CommentId)
     @Html.HiddenFor(m => Model.newComment.PostId)
     @Html.HiddenFor(m => Model.newComment.userName)
@@ -18,7 +18,7 @@ else
     <p>To add comments you must @Html.ActionLink("Log In", "Login")</p>
 }
 
-<div class="blog-area section-padding-100">
+<div class="blog-area section-padding-100" id="results">
     @foreach(var u in Model.commentsList)
     {
         <div style="padding-bottom: 20px">

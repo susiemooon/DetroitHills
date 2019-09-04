@@ -1,0 +1,13 @@
+﻿@model DetroitHills.ViewModels.CommentsVM
+
+<div >
+    @foreach (var u in Model.commentsList)
+    {
+        <div style="padding-bottom: 20px">
+            <p>@Html.DisplayFor(m => u.userName)</p>
+            @Html.DisplayFor(m => u.date)
+            <p>@Html.DisplayFor(m => u.text)</p>
+        </div>
+    }
+</div>
+
