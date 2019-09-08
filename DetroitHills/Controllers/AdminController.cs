@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using DetroitHills.Models;
 using DetroitHills.ViewModels;
+using System.Net.Mail;
 
 namespace DetroitHills.Controllers
 {
@@ -369,6 +370,44 @@ namespace DetroitHills.Controllers
             obl.EditOrder(o);
 
             return RedirectToAction("Orders", "Admin");
+        }
+
+        public ActionResult Newsletter()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Newsletter(string subject, string text)
+        {
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;            
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+
+            System.Net.NetworkCredential credentials = new System.Net.NetworkCredential("detroithillsnews@gmail.com", "ZacharSabin");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
+
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("detroithillsnews@gmail.com");
+            UserBL userBl = new UserBL();
+            List<User> list = userBl.GetUsers();
+            foreach (User user in list)
+            {
+                if (user.username == "admin")
+                    continue;
+                mail.To.Add(user.email);
+
+
+            }
+            mail.Subject = subject;
+            mail.Body = text;
+            
+            client.Send(mail);
+            
+            return View("Index");
         }
     }
 }

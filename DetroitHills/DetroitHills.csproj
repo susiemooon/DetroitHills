@@ -296,6 +296,7 @@
     <Content Include="Views\Admin\EditOrder.cshtml" />
     <Content Include="Views\Home\NewComment.cshtml" />
     <Content Include="Views\Home\CommentList.cshtml" />
+    <Content Include="Views\Admin\Newsletter.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
