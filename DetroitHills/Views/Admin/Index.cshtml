@@ -10,11 +10,25 @@
     </div>
 </section>
 
-<p>@Html.ActionLink("Create Post","CreatePost");</p>
-<p>@Html.ActionLink("Add Concert", "AddConcert")</p>
-<p>@Html.ActionLink("Add Video", "AddVideo")</p>
-<p>@Html.ActionLink("Add Photos", "AddPhotos")</p>
-<p>@Html.ActionLink("Add Item", "AddItem")</p>
-<p>@Html.ActionLink("Orders", "Orders")</p>
-<p>@Html.ActionLink("Newsletter", "Newsletter")</p>
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+                    
+                    <div class="login-form">
+                        <button onclick="location.href='@Url.Action("Orders", "Admin")'" class="btn oneMusic-btn mt-30">Orders</button>
+                        <button onclick="location.href='@Url.Action("CreatePost", "Admin")'" class="btn oneMusic-btn mt-30">Create Post</button>
+                        <button onclick="location.href='@Url.Action("AddConcert", "Admin")'" class="btn oneMusic-btn mt-30">Add Concert</button>
+                        <button onclick="location.href='@Url.Action("AddVideo", "Admin")'" class="btn oneMusic-btn mt-30">Add Video</button>
+                        <button onclick="location.href='@Url.Action("AddItem", "Admin")'" class="btn oneMusic-btn mt-30">Add Item</button>
+                        <button onclick="location.href='@Url.Action("AddPhotos", "Admin")'" class="btn oneMusic-btn mt-30">Add Photos</button>
+                        <button onclick="location.href='@Url.Action("Newsletter", "Admin")'" class="btn oneMusic-btn mt-30">Newsletter</button>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 

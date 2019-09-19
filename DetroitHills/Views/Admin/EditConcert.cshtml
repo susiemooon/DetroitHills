@@ -9,26 +9,34 @@
         <h2>Edit Concert</h2>
     </div>
 </section>
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
 
-<section class="section-padding-100">
-    @using (Html.BeginForm("EditConcert", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-        @Html.ValidationSummary(true);
-        @Html.HiddenFor(m => m.TourId);
-        <div>
-            <p style="font:800;  font-size:large">Date:</p>
-            @Html.EditorFor(m => Model.tourDate)
+                    <div class="login-form">
+                        @using (Html.BeginForm("EditConcert", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.ValidationSummary(true);
+                            @Html.HiddenFor(m => m.TourId)
+                            <div class="form-group">
+                                <label>Date:</label>
+                                <p>@Html.EditorFor(m => Model.tourDate, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Name:</label>
+                                <p>@Html.EditorFor(m => Model.name, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Place:</label>
+                                <p>@Html.EditorFor(m => Model.place, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <button type="submit" class="btn oneMusic-btn mt-30">Save</button>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <p style="font:800; font-size:large">Name:</p>
-            @Html.EditorFor(m => Model.name)
-        </div>
-        <div>
-            <p style="font:800;  font-size:large">Place:</p>
-            @Html.EditorFor(m => Model.place)
-        </div>
-
-
-        <input type="submit" class="oneMusic-btn" value="Save" />
-    }
+    </div>
 </section>

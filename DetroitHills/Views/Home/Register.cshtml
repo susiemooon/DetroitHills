@@ -7,7 +7,7 @@
 <!-- ##### Breadcumb Area Start ##### -->
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/login_back.jpg);">
     <div class="bradcumbContent">
-        <h2>Register</h2>
+        <h2>@Resources.Resource.Register</h2>
     </div>
 </section>
 <!-- ##### Breadcumb Area End ##### -->
@@ -17,28 +17,28 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="login-content">
-                    <h3>Create Profile</h3>
+                    <h3>@Resources.Resource.CreateProfile</h3>
                     @using (Html.BeginForm())
                     {
                     <div class="login-form">
                         
                             <div class="form-group">
-                                <label for="exampleInputEmail1">User Name</label>
+                                <label>@Resources.Resource.UserName</label>
                                 <p>@Html.EditorFor(mbox => Model.username, new { htmlAttributes = new { @class = "form-control" } })</p>
                                 <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.username)</p>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                                <label>Email</label>
                                 @Html.EditorFor(mbox => Model.email, new { htmlAttributes = new { @class = "form-control" } })
-                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.email)</p>
+                                
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>@Resources.Resource.Password</label>
                                 @Html.EditorFor(mbox => Model.password, new { htmlAttributes = new { @class = "form-control" } })
                                 <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.password)</p>
                             </div>
                             
-                            <input type="submit" class="btn oneMusic-btn mt-30" value="Register"/>
+                            <input type="submit" class="btn oneMusic-btn mt-30" value="@Resources.Resource.Register"/>
                                                 
                     </div>
                     }

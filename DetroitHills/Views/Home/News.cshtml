@@ -6,7 +6,7 @@
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/news_back.jpg);">
     <div class="bradcumbContent">
-        <h2>News</h2>
+        <h2>@Resources.Resource.News</h2>
     </div>
 </section>
 
@@ -33,11 +33,18 @@
                                 <!-- Blog Content -->
                                 <div class="blog-content">
                                     <!-- Post Title -->
-                                    <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
+                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                                    {
+                                        <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="post-title">@Html.DisplayFor(m => u.title_lng)</a>
+                                    }
                                     <!-- Post Meta -->
                                     <div class="post-meta d-flex mb-30">
-                                        <p class="tags">@Html.DisplayFor(m=> u.numOfComments) Comments</p> <!-- TO DO-->
-                                        <p class="tags" style="font-weight:600"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
+                                        <p class="tags">@Html.DisplayFor(m=> u.numOfComments) @Resources.Resource.Comments</p> 
+                                        <p class="tags" style="font-weight:700"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
                                        @if (Session["login"] != null)
                                        {
                                            if (Session["login"].ToString().Equals("admin"))
@@ -51,8 +58,28 @@
                                        }
 
                                     </div>
-                                    <!-- <p>Работать ему надо, пидрила эдакая, вон Лиам Галлагер перед Оазис на пособие жил и нормально, зато в люди выбился</p> -->
-                                    <p>@u.text.Substring(0, 50) ... </p>
+                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                                    {
+                                        if (u.text.Length <= 50)
+                                        {
+                                            <p>@u.text </p>
+                                        }
+                                        else
+                                        {
+                                            <p>@u.text.Substring(0, 50) ... </p>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (u.text_lng.Length <= 50)
+                                        {
+                                            <p>@u.text_lng </p>
+                                        }
+                                        else
+                                        {
+                                            <p>@u.text_lng.Substring(0, 50) ... </p>
+                                        }
+                                    }
                                 </div>
                             </div>
                         }

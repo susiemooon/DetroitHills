@@ -10,35 +10,57 @@
     </div>
 </section>
 
-@using (Html.BeginForm("EditPost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.ValidationSummary(true);
-    @Html.HiddenFor(m => m.PostId)
-    @Html.HiddenFor(m => m.date)
-    @Html.HiddenFor(m => m.image)
-    <div>
-        <p style="font:800; color:white; font-size:large">Post Name:</p>
-        @Html.EditorFor(m => Model.title)
-    </div>
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                @using (Html.BeginForm("EditPost", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(m => m.PostId)
+                    @Html.HiddenFor(m => m.date)
+                    @Html.HiddenFor(m => m.image)
+                    <div class="login-content">
+                        <h3>English version</h3>
+                        <div class="login-form">
 
-    <div>
-        <p style="font:800; color:white; font-size:large">Post Name Rus:</p>
-        @Html.EditorFor(m => Model.title_lng)
-    </div>
+                            <div class="form-group">
+                                <label>Title:</label>
+                                <p>@Html.EditorFor(m => Model.title, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Text:</label>
+                                <textarea class="form-big" name="text">@Html.DisplayTextFor(m=> Model.text)</textarea>
+                              <!-- Html.EditorFor(m => Model.text, new { htmlAttributes = new { SOBAKA class = "form-big" } })</p> -->
+                            </div>
 
-            <div>
 
-                @Html.EditorFor(m => Model.text)
+                        </div>
+                    </div>
+                    <div class="login-content">
+                        <h3>Russian version</h3>
+                        <div class="login-form">
+
+                            <div class="form-group">
+                                <label>Title:</label>
+                                <p>@Html.EditorFor(m => Model.title_lng, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Text:</label>
+                                <textarea class="form-big" name="text_lng">@Html.DisplayTextFor(m => Model.text_lng)</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Upload image:</label>
+                                <input type="file" name="upload" />
+                            </div>
+
+                            <button type="submit" class="btn oneMusic-btn mt-30">Save</button>
+
+                        </div>
+                    </div>
+                }
             </div>
-
-            <div>
-
-                @Html.EditorFor(m => Model.text_lng)
-            </div>
-
-            <input type="file" name="upload"/>
-
-            <input type="submit" class="btn btn-primary" value="Save" />
-
-}
-
+        </div>
+    </div>
+</section>

@@ -7,7 +7,7 @@
  <!-- ##### Breadcumb Area Start ##### -->
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/login_back.jpg);">
     <div class="bradcumbContent">
-        <h2>Login</h2>
+        <h2>@Resources.Resource.Login</h2>
     </div>
 </section>
 <!-- ##### Breadcumb Area Ed ##### -->
@@ -17,26 +17,26 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="login-content">
-                    <h3>Welcome Back</h3>
+                    <h3>@Resources.Resource.WelcomeBack</h3>
                     <!-- Login Form -->
                     <div class="login-form">
                     @using (Html.BeginForm())
                     {
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
-                                <label for="exampleInputEmail1">User Name</label>
-                               <!-- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User Name"> -->
+                                <label>@Resources.Resource.UserName</label>
+                               
                                 <p>@Html.EditorFor(mbox => Model.username, new { htmlAttributes = new { @class = "form-control" } }) </p>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
+                                <label>@Resources.Resource.Password</label>
                                 <p> @Html.EditorFor(mbox => Model.password, new { htmlAttributes = new { @class = "form-control" } }) </p>
                             </div>
-                            <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+                            <button type="submit" class="btn oneMusic-btn mt-30">@Resources.Resource.Login</button>
                      }
                             <div class="form-group">
                                 <p></p>
-                                <label><a href="@Url.Action("Register", "Home")">Don't have a profile? Create new.</a></label>
+                                <label><a href="@Url.Action("Register", "Home")">@Resources.Resource.linkRegister</a></label>
                             </div>
                                            
 

@@ -1742,6 +1742,28 @@ table td, table th {
   .single-web-icon:hover {
     box-shadow: 0 2px 50px 0 rgba(0, 0, 0, 0.15); }
 
+  .login-content .form-small {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #000000;
+    font-size: 14px;
+    
+    padding: 0 20px;
+    border-radius: 0; }
+    .login-content .form-small:focus {
+      box-shadow: none; }
+
+.login-content .form-big {
+    width: 100%;
+    height: 250px;
+    border: 1px solid #000000;
+    font-size: 14px;    
+    padding: 5px 20px;
+    border-radius: 0;
+    resize: none; }
+    .login-content .form-big:focus {
+      box-shadow: none; }
+
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */

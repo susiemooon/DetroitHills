@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using DetroitHills.Models;
 using DetroitHills.ViewModels;
 using System.Net.Mail;
+using DetroitHills.Filters;
 
 namespace DetroitHills.Controllers
 {
+    [Culture]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -23,7 +25,7 @@ namespace DetroitHills.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreatePost(Post p)
+        public ActionResult CreatePost(Post p, string text, string text_lng)
         {
             string filename = "blog1.jpg";
             if (p.upload!= null)
@@ -36,6 +38,8 @@ namespace DetroitHills.Controllers
             p.image = "/Assets/img/bg-img/" + filename;
             p.date = DateTime.Now;
             p.numOfComments = 0;
+            p.text = text;
+            p.text_lng = text_lng;
             PostBL postBL = new PostBL();
             if (ModelState.IsValid)
             {
@@ -56,23 +60,22 @@ namespace DetroitHills.Controllers
 
         
         [HttpPost]
-        public ActionResult EditPost(Post p, HttpPostedFileBase image)
+        public ActionResult EditPost(Post p, string text, string text_lng)
         {
-            if (image != null)
+            if (p.upload != null)
             {
-                string filename = System.IO.Path.GetFileName(image.FileName);
-                image.SaveAs(Server.MapPath("~/Assets/img/bg-img/" + filename));
+                string filename = System.IO.Path.GetFileName(p.upload.FileName);
+                p.upload.SaveAs(Server.MapPath("~/Assets/img/bg-img/" + filename));
                 p.image = "/Assets/img/bg-img/" + filename;
             }
-
+            p.date = DateTime.Now;
+            p.text = text;
+            p.text_lng = text_lng;
             
-            if (ModelState.IsValid)
-            {
                 PostBL postBL = new PostBL();
                 postBL.EditPost(p);
                 return RedirectToAction("News", "Home");
-            }
-            return View(p);
+            
         }
 
         [HttpPost]

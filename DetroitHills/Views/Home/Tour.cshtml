@@ -6,7 +6,7 @@
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/tour_back.jpg);">
     <div class="bradcumbContent">
-        <h2>Tour</h2>
+        <h2>@Resources.Resource.Tour</h2>
     </div>
 </section>
 
@@ -32,7 +32,7 @@
                         <td class="column1">@Html.DisplayFor(m => u.tourDate.Day)/@Html.DisplayFor(m => u.tourDate.Month)/@Html.DisplayFor(m => u.tourDate.Year)</td>
                         <td class="column2">@Html.DisplayFor(m => u.name)</td>
                         <td class="column3">@Html.DisplayFor(m => u.place)</td>
-                        <td class="column4"><button class="btn oneMusic-btn mt-3" type="submit">Tickets</button></td>
+                        <td class="column4"><button class="btn oneMusic-btn mt-3" type="submit">@Resources.Resource.Tickets</button></td>
                         @if (Session["login"] != null)
                         {
                             if (Session["login"].ToString().Equals("admin"))

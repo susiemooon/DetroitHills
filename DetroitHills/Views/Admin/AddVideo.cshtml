@@ -10,19 +10,29 @@
     </div>
 </section>
 
-<div class="blog-area section-padding-100">
-    @using (Html.BeginForm("AddVideo", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-        <div>
-            <p style="font:800;  font-size:large">Video Name:</p>
-            @Html.EditorFor(m => Model.name)
-        </div>
-        <div>
-            <p style="font:800; font-size:large">Link:</p>
-            @Html.EditorFor(m => Model.link)
-        </div>
-        
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
 
-            <input type="submit" class="oneMusic-btn" value="Save" />
-    }
+                    <div class="login-form">
+                        @using (Html.BeginForm("AddVideo", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-group">
+                                <label>Video Name:</label>
+                                <p>@Html.EditorFor(m => Model.name, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Link:</label>
+                                <p>@Html.EditorFor(m => Model.link, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            
+                            <button type="submit" class="btn oneMusic-btn mt-30">Add</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</section>

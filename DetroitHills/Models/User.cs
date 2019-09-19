@@ -12,13 +12,16 @@ namespace DetroitHills.Models
         [Key]
         public int UserId { get; set; }
 
-        [Required(ErrorMessage ="You should write your username")]
+        
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+                  ErrorMessageResourceName = "NameRequired")]
         public string username { get; set; }
 
         public string email { get; set; }
 
         [DataType(DataType.Password)]
-        [Required(ErrorMessage ="You should write a password")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+                  ErrorMessageResourceName = "PasswordRequired")]
         public string password { get; set; }
     }
 }

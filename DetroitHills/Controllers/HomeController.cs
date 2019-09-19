@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using DetroitHills.DAL;
+using DetroitHills.Filters;
 using DetroitHills.Models;
 using DetroitHills.ViewModels;
 using System.Web.Security;
 
 namespace DetroitHills.Controllers
 {
+    [Culture]
     public class HomeController : Controller
     {
         // GET: Home
@@ -257,6 +259,32 @@ namespace DetroitHills.Controllers
             postBL.EditPost(post);
 
             return PartialView("CommentList", comVM);
+        }
+
+        public ActionResult ChangeCulture(string lang)
+        {
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            // Список культур
+            List<string> cultures = new List<string>() { "en", "ru" };
+            if (!cultures.Contains(lang))
+            {
+                lang = "en";
+            }
+            
+            HttpCookie cookie = Request.Cookies["lang"];
+            if (cookie != null)
+                cookie.Value = lang;   // если куки уже установлено, то обновляем значение
+            else
+            {
+
+                cookie = new HttpCookie("lang");
+                cookie.HttpOnly = false;
+                cookie.Value = lang;
+                cookie.Expires = DateTime.Now.AddYears(1);
+            }
+            Response.Cookies.Add(cookie);
+            Session["lang"] = lang;
+            return Redirect(returnUrl);
         }
     }
 }
