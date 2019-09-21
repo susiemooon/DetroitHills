@@ -29,20 +29,23 @@
                             @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
                             {
                                 <a href="#">@Html.DisplayFor(m => u.price)</a>
+                                <p></p>
                             }
                             else
                             {
                                 <a href="#">@Html.DisplayFor(m => u.price_lng)</a>
+                                <p></p>
                             }
                                 @if (Session["login"] != null)
                                 {
                                     if (Session["login"].ToString().Equals("admin"))
                                     {
                                         
-                                            <a href="@Url.Action("EditItem", "Admin", new { id = u.ItemId })" value="Edit" /> 
-                                            using (Html.BeginForm("DeleteItem", "Admin", new { id = u.ItemId }))
-                                            {
-                                                <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
+                                            <button onclick="location.href='@Url.Action("EditItem", "Admin", new { id = u.ItemId })'" class="btn btn-light">Edit</button>
+                                        
+                                        using (Html.BeginForm("DeleteItem", "Admin", new { id = u.ItemId }))
+                                        {
+                                               <button type="submit" class="btn btn-danger">Delete</button>
                                             }
                                         
                                     }

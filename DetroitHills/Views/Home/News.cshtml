@@ -42,17 +42,17 @@
                                         <a href="#" class="post-title">@Html.DisplayFor(m => u.title_lng)</a>
                                     }
                                     <!-- Post Meta -->
-                                    <div class="post-meta d-flex mb-30">
-                                        <p class="tags">@Html.DisplayFor(m=> u.numOfComments) @Resources.Resource.Comments</p> 
-                                        <p class="tags" style="font-weight:700"><a href="@Url.Action("Post", "Home", new { id = u.PostId })">See More</a></p>
+                                    <div class="post-meta d-flex mb-30">                                        
+                                        <p ><button class="btn btn-light" onclick="location.href='@Url.Action("Post", "Home", new {id = u.PostId })'">See More</button></p>
+                                        
                                        @if (Session["login"] != null)
                                        {
                                            if (Session["login"].ToString().Equals("admin"))
                                            {
-                                            <p class="tags" style="font-weight:600"><a href="@Url.Action("EditPost", "Admin", new { id = u.PostId })">Edit Post</a></p>
+                                            <p ><button onclick="location.href='@Url.Action("EditPost", "Admin", new { id = u.PostId })'" class="btn btn-light">Edit Post</button></p>
                                             using (Html.BeginForm("DeletePost", "Admin", new { id = u.PostId }))
                                             {
-                                                <p class="tags" style="font-weight:600"><button type="submit">Delete Post</button></p>
+                                                <p><button type="submit" class="btn btn-danger">Delete Post</button></p>
                                             }
                                            }
                                        }
@@ -80,6 +80,7 @@
                                             <p>@u.text_lng.Substring(0, 50) ... </p>
                                         }
                                     }
+                                    <p class="tags">@Html.DisplayFor(m => u.numOfComments) @Resources.Resource.Comments</p> 
                                 </div>
                             </div>
                         }

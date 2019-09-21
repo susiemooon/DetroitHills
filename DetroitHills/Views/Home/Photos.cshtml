@@ -18,7 +18,10 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-heading-photo">
-                    <h2>@Html.DisplayFor(m => u[0].photoalbum)</h2>
+                   
+                 <h2><a href="@Url.Action("Album", "Home", new { name = u[0].photoalbum })">@Html.DisplayFor(m => u[0].photoalbum)</a></h2>
+
+                    
                 </div>
             </div>
         </div>
@@ -34,19 +37,8 @@
                         <img src="@Html.DisplayFor(m => p.path)" alt="">
 
                     </div>
-                    if (Session["login"] != null)
-                    {
-                        if (Session["login"].ToString().Equals("admin"))
-                        {
-                           
-                            using (Html.BeginForm("DeletePhoto", "Admin", new { id = p.PhotoId }))
-                            {
-                                <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
-                            }
-                        }
                     }
-                    }
-                    
+
                 </div>
             </div>
         </div>

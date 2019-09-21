@@ -6,7 +6,7 @@
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
     <div class="bradcumbContent">
-        <h2>My Orders</h2>
+        <h2>@Resources.Resource.MyOrders</h2>
     </div>
 </section>
 
@@ -18,9 +18,9 @@
             <table>
                 <thead>
                     <tr class="table100-head">
-                        <th class="column1">Item</th>
-                        <th class="column2">Amount</th>
-                        <th class="column3">Status</th>
+                        <th class="column1">@Resources.Resource.Item</th>
+                        <th class="column2">@Resources.Resource.Amount</th>
+                        <th class="column3">@Resources.Resource.Status</th>
                     </tr>
                 </thead>
                 @foreach (var u in Model.orders)
@@ -29,8 +29,15 @@
                         <tr>
                             <td class="column1">@Html.DisplayFor(m => u.item)</td>
                             <td class="column2">@Html.DisplayFor(m => u.amount)</td>
-                            <td class="column3">@Html.DisplayFor(m => u.status)</td>
-                            
+                            @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                            {
+                                <td class="column3">@Html.DisplayFor(m => u.status)</td>
+                            }
+                            else
+                            {
+                                <td class="column3">@Html.DisplayFor(m => u.status_lng)</td>
+                            }
+
                         </tr>
 
                     </tbody>

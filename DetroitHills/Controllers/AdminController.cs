@@ -298,53 +298,23 @@ namespace DetroitHills.Controllers
         [HttpPost]
         public ActionResult DeletePhoto(int id)
         {
+
             PhotosBL photoBL = new PhotosBL();
             List<Photo> itemList = photoBL.GetPhotos();
             Photo photo = itemList.Where(u => u.PhotoId == id).Single();
             photoBL.DeletePhoto(photo);
 
-            PhotosVM photosVM = new PhotosVM();
-
-            List<Photo> list = photoBL.GetPhotos();
-            int i, n, j;
-
-            photosVM.albums = new List<List<Photo>>();
-
-
-            if (list != null)
+            /*AlbumVM albumVM = new AlbumVM();
+            PhotosBL photosBL = new PhotosBL();
+            List<Photo> list = photosBL.GetPhotos();
+            albumVM.album = new List<Photo>();
+            foreach (Photo p in list)
             {
-
-                n = 1;
-                for (i = 1; i < list.Count; i++)
-                {
-
-                    if (list[i].photoalbum != list[i - 1].photoalbum)
-                        n += 1;
-                }
-
-                for (i = 0; i < n; i++)
-                {
-
-                    List<Photo> tmp = new List<Photo>();
-                    tmp.Add(list[0]);
-
-                    for (j = 0; j < list.Count; j++)
-                    {
-                        if (list[1].photoalbum != list[0].photoalbum)
-                            break;
-                        else
-                        {
-                            tmp.Add(list[1]);
-                            list.RemoveAt(0);
-                        }
-                    }
-                    photosVM.albums.Add(tmp);
-                    list.RemoveAt(0);
-                }
-
+                if (p.photoalbum == photo.photoalbum)
+                    albumVM.album.Add(p);
             }
-
-            return RedirectToAction("Photos", "Home", photosVM);
+            */
+            return RedirectToAction("Album", "Home", new { name = photo.photoalbum });
         }
 
         public ActionResult Orders()

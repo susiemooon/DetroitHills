@@ -120,44 +120,63 @@ namespace DetroitHills.Controllers
             int i, n, j;
 
             photosVM.albums = new List<List<Photo>>();
-            
+
+            List<string> names = new List<string>();
 
             if (list!=null)
             {
                 
                 n = 1;
+                names.Add(list[0].photoalbum);
                 for (i = 1; i < list.Count; i++)
                 {
 
                     if (list[i].photoalbum != list[i - 1].photoalbum)
-                        n += 1;
+                    {
+                        if (!names.Contains(list[i].photoalbum))
+                        {
+                            n += 1;
+                            names.Add(list[i].photoalbum);
+                        }
+                    }
                 }
 
                 for (i = 0; i < n; i++)
                 {
                     
                     List<Photo> tmp = new List<Photo>();
-                    tmp.Add(list[0]);
-
-                    for (j = 0; j < list.Count; j++)
+                    foreach (Photo p in list)
                     {
-                        if (list[1].photoalbum != list[0].photoalbum)
-                            break;
-                        else
-                        {
-                            tmp.Add(list[1]);
-                            list.RemoveAt(0);
-                        }
+                        if (p.photoalbum == names[i])
+                            tmp.Add(p);
                     }
+                    
                     photosVM.albums.Add(tmp);
-                    list.RemoveAt(0);
+                    
                 }
                 
             }
-            
+            photosVM.albums.Reverse();
             return View(photosVM);
         }
 
+        public ActionResult Album(string name)
+        {
+            AlbumVM albumVM = new AlbumVM();
+            PhotosBL photosBL = new PhotosBL();
+            List<Photo> list = photosBL.GetPhotos();
+            albumVM.album = new List<Photo>();
+            foreach (Photo p in list)
+            {
+                if (p.photoalbum == name)
+                    albumVM.album.Add(p);
+            }
+            if (albumVM.album == null)
+                return RedirectToAction("Photos", "Home");
+            return View(albumVM);
+        }
+
+        
         public ActionResult News()
         {
             PostBL postBL = new PostBL();

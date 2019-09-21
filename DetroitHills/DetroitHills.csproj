@@ -255,6 +255,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AlbumVM.cs" />
     <Compile Include="ViewModels\CommentsVM.cs" />
     <Compile Include="ViewModels\MyOrdersVM.cs" />
     <Compile Include="ViewModels\NewsVM.cs" />
@@ -308,6 +309,7 @@
     <Content Include="Views\Home\NewComment.cshtml" />
     <Content Include="Views\Home\CommentList.cshtml" />
     <Content Include="Views\Admin\Newsletter.cshtml" />
+    <Content Include="Views\Home\Album.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

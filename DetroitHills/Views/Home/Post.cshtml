@@ -6,23 +6,41 @@
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(@Html.DisplayFor(m => Model.image));">
     <div class="bradcumbContent">
-        <h2>@Html.DisplayFor(m => Model.title)</h2>
+        <h2>@Resources.Resource.News</h2>
     </div>
 </section>
 
-<div class="blog-area section-padding-100">
+<section class="login-area section-padding-100">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-9">
-                @Html.DisplayFor(m=> Model.text)
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                    {
+                        <h3>@Html.DisplayFor(m => Model.title)</h3>
+
+                        <div class="post-text">
+                            @Html.DisplayFor(m => Model.text)
+                        </div>
+                    }
+                    else
+                    {
+                        <h3>@Html.DisplayFor(m => Model.title_lng)</h3>
+
+                        <div class="post-text">
+                            @Html.DisplayFor(m => Model.text_lng)
+                        </div>
+                    }
                 </div>
+                @Html.Action("NewComment", "Home", new { postId = Model.PostId })
             </div>
         </div>
     </div>
-<div class="blog-area section-padding-100">
     
+</section>
 
-        @Html.Action("NewComment", "Home", new { postId = Model.PostId })
-    
-</div>
+
+
+
+
 

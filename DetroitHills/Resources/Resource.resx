@@ -193,4 +193,37 @@ since March, 2011</value>
   <data name="Worldplace" xml:space="preserve">
     <value>This one is about Love</value>
   </data>
+  <data name="Adress" xml:space="preserve">
+    <value>Adress</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="LogInComments" xml:space="preserve">
+    <value>To add comments you should be</value>
+  </data>
+  <data name="Log_In" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="NewOrder" xml:space="preserve">
+    <value>New Order</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size if necessary (S, M, L, XL)</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>Item</value>
+  </data>
+  <data name="MyOrders" xml:space="preserve">
+    <value>My Orders</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
 </root>

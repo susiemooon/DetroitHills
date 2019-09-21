@@ -38,10 +38,13 @@
                             if (Session["login"].ToString().Equals("admin"))
                             {
                                 <td class="column4">
-                                    <button href="@Url.Action("EditConcert", "Admin", new { id = u.TourId })" value="Edit" /> |
+
+                                    
+                                        <button onclick="location.href='@Url.Action("EditTour", "Admin", new { id = u.TourId })'" class="btn btn-light">Edit</button>
+                                    
                                     @using (Html.BeginForm("DeleteConcert", "Admin", new { id = u.TourId }))
                                     {
-                                    <p class="tags" style="font-weight:600"><button type="submit">Delete</button></p>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
                                     }
                                 </td>
                             }

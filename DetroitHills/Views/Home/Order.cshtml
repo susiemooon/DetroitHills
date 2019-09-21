@@ -6,7 +6,7 @@
 
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
     <div class="bradcumbContent">
-        <h2>New Order</h2>
+        <h2>@Resources.Resource.NewOrder</h2>
     </div>
 </section>
 
@@ -17,8 +17,15 @@
                 <div class="login-content">
                     
                      <h4>@Html.DisplayFor(m => Model.item.name)</h4>
+                     @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                    {
                      <h4>@Html.DisplayFor(m => Model.item.price)</h4>
-                        
+                     }
+                     else
+                     {
+                        <h4>@Html.DisplayFor(m => Model.item.price_lng)</h4>
+                     }
+
                     <div class="album-thumb">
                         <img src="@Html.DisplayFor(m=> Model.item.photo)" alt="">
                     </div>
@@ -29,22 +36,22 @@
                             @Html.ValidationSummary(true);
                             @Html.HiddenFor(m => Model.order.item)
                             <div class="form-group">
-                                <label>Amount:</label>
+                                <label>@Resources.Resource.Amount:</label>
                                 <p>@Html.EditorFor(m => Model.order.amount, new { htmlAttributes = new { @class = "form-small" } })</p>
                             </div>
                             <div class="form-group">
-                                <label>Adress:</label>
+                                <label>@Resources.Resource.Adress:</label>
                                 <p>@Html.EditorFor(m => Model.order.adress, new { htmlAttributes = new { @class = "form-small" } })</p>
                             </div>
                             <div class="form-group">
-                                <label>Phone:</label>
+                                <label>@Resources.Resource.Phone:</label>
                                 <p>@Html.EditorFor(m => Model.order.phone, new { htmlAttributes = new { @class = "form-small" } })</p>
                             </div>
                             <div class="form-group">
-                                <label>Size if necessary (S, M, L, XL):</label>
+                                <label>@Resources.Resource.Size</label>
                                 <p>@Html.EditorFor(m => Model.order.size, new { htmlAttributes = new { @class = "form-small" } })</p>
                             </div>
-                            <button type="submit" class="btn oneMusic-btn mt-30">Submit</button>
+                            <button type="submit" class="btn oneMusic-btn mt-30">@Resources.Resource.Submit</button>
                         }
                     </div>
                 </div>

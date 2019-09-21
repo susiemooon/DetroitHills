@@ -1,0 +1,43 @@
+﻿@model DetroitHills.ViewModels.AlbumVM
+@{
+    ViewBag.Title = "Album";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/photo_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>@Resources.Resource.Photos</h2>
+    </div>
+</section>
+
+<section class="latest-albums-area section-padding-100-0">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading-photo">
+                    <h2>@Html.DisplayFor(m=> Model.album[0].photoalbum)</h2>
+                    </div>
+                @foreach (var u in Model.album)
+                {
+                   <div class="album-thumb">
+                       <img src=@Html.DisplayFor(m => u.path) alt="">
+                   </div>
+                if (Session["login"] != null)
+                {
+                    if (Session["login"].ToString().Equals("admin"))
+                    {
+                <div class="album-price">
+                    @using (Html.BeginForm("DeletePhoto", "Admin", new { id = u.PhotoId }))
+                    {
+                    <p><button class="btn btn-danger" type="submit">Delete</button></p>
+                    }
+                </div>
+                    }
+                }
+                }
+                </div>
+            </div>
+        </div>
+    </section>
+
