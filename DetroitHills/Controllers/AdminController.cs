@@ -304,16 +304,7 @@ namespace DetroitHills.Controllers
             Photo photo = itemList.Where(u => u.PhotoId == id).Single();
             photoBL.DeletePhoto(photo);
 
-            /*AlbumVM albumVM = new AlbumVM();
-            PhotosBL photosBL = new PhotosBL();
-            List<Photo> list = photosBL.GetPhotos();
-            albumVM.album = new List<Photo>();
-            foreach (Photo p in list)
-            {
-                if (p.photoalbum == photo.photoalbum)
-                    albumVM.album.Add(p);
-            }
-            */
+            
             return RedirectToAction("Album", "Home", new { name = photo.photoalbum });
         }
 
@@ -337,9 +328,15 @@ namespace DetroitHills.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditOrder(Order o)
+        public ActionResult EditOrder(Order o, string newstatus)
         {
             OrderBL obl = new OrderBL();
+            if (newstatus != "")
+            {
+                o.status = newstatus;
+                o.status_lng = obl.Status_Lng(newstatus);
+            }
+            
             obl.EditOrder(o);
 
             return RedirectToAction("Orders", "Admin");

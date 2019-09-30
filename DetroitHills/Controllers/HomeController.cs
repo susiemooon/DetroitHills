@@ -218,7 +218,7 @@ namespace DetroitHills.Controllers
             Order o = oVM.order;
             o.username = Session["login"].ToString();
             o.status = "In Process";
-            o.status_lng = "В Процессе";
+            o.status_lng = orderBL.Status_Lng(o.status);
             if (ModelState.IsValid)
             {
                 orderBL.AddOrder(o);

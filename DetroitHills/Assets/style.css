@@ -1789,6 +1789,19 @@ table td, table th {
       font-size: 17px;
       margin-bottom: 2px; }
 
+    .custom-select {
+  position: relative;
+  
+}
+
+.custom-select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */

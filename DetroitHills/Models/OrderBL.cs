@@ -38,5 +38,18 @@ namespace DetroitHills.Models
             mDB.OrderDB.Remove(order);
             mDB.SaveChanges();
         }
+
+        public string Status_Lng(string status)
+        {
+            if (status == "In Process")
+                return "В Процессе";
+            else if (status == "Payed")
+                return "Оплачено";
+            else if (status == "Send")
+                return "Отправлено";
+            else if (status == "Done")
+                return "Завершен";
+            else return "";
+        }
     }
 }

@@ -1,8 +1,54 @@
-﻿
+﻿@model DetroitHills.Models.Order
 @{
     ViewBag.Title = "EditOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EditOrder</h2>
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(/Assets/img/bg-img/shop_back.jpg);">
+    <div class="bradcumbContent">
+        <h2>Edit Order</h2>
+    </div>
+</section>
 
+<section class="login-area section-padding-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="login-content">
+
+                    <div class="login-form">
+                        @using (Html.BeginForm("EditOrder", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.ValidationSummary(true);
+                            @Html.HiddenFor(m => m.OrderId)
+                            @Html.HiddenFor(m => m.username)
+                            @Html.HiddenFor(m => m.phone)
+                            @Html.HiddenFor(m => m.size)
+                            @Html.HiddenFor(m => m.status)
+                            @Html.HiddenFor(m => m.status_lng)
+                            <div class="form-group">
+                                <label>Item:</label>
+                                <p>@Html.EditorFor(m => Model.item, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Amount:</label>
+                                <p>@Html.EditorFor(m => Model.amount, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Adress:</label>
+                                <p>@Html.EditorFor(m => Model.adress, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Status: @Html.DisplayFor(m=> Model.status)</label>
+                                <p>@Html.DropDownList("newstatus", new SelectList(new string[] { "In Process", "Payed", "Send", "Done" }), "Select status", new { htmlAttributes = new { @class = "custom-select" } })</p>
+                                    
+                            </div>
+                            <button type="submit" class="btn oneMusic-btn mt-30">Save</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
