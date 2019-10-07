@@ -304,8 +304,18 @@ namespace DetroitHills.Controllers
             Photo photo = itemList.Where(u => u.PhotoId == id).Single();
             photoBL.DeletePhoto(photo);
 
-            
-            return RedirectToAction("Album", "Home", new { name = photo.photoalbum });
+            itemList = photoBL.GetPhotos();
+            bool albumExist=false;
+            foreach (Photo p in itemList)
+            {
+                if (p.photoalbum == photo.photoalbum)
+                    albumExist = true;
+            }
+
+            if (albumExist)
+                return RedirectToAction("Album", "Home", new { name = photo.photoalbum });
+            else
+                return (RedirectToAction("Photos", "Home"));
         }
 
         public ActionResult Orders()
