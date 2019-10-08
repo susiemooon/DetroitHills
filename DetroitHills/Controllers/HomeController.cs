@@ -200,6 +200,8 @@ namespace DetroitHills.Controllers
         [Authorize]
         public ActionResult Order(int id)
         {
+            if (Session["login"] == null)
+                return View("Login"); 
             ItemBL orderBL = new ItemBL();
             List<Item> list = orderBL.GetItems();
             Item item = list.Where(u => u.ItemId == id).Single();
