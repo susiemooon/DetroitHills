@@ -26,7 +26,7 @@
                         <div class="event-text">
                             <h4>@Html.DisplayFor(m => u.name)</h4>
                             <div class="event-meta-data">
-                            @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                            @if (Session["lang"] == null || Session["lang"].ToString().Equals("en") || u.price_lng==null)
                             {
                                 <a href="#">@Html.DisplayFor(m => u.price)</a>
                                 <p></p>

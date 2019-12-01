@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
                 <div class="login-content">
-                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en") || Model.title_lng==null || Model.text_lng==null)
                     {
                         <h3>@Html.DisplayFor(m => Model.title)</h3>
 

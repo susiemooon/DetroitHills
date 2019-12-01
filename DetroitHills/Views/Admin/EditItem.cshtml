@@ -21,6 +21,7 @@
                         {
                             @Html.ValidationSummary(true);
                             @Html.HiddenFor(m => m.ItemId)
+                            @Html.HiddenFor(m=> m.photo)
                             <div class="form-group">
                                 <label>Name:</label>
                                 <p>@Html.EditorFor(m => Model.name, new { htmlAttributes = new { @class = "form-small" } })</p>

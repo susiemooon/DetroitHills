@@ -169,7 +169,7 @@
     <value>Зарегистрироваться</value>
   </data>
   <data name="SeeMore" xml:space="preserve">
-    <value>Читать далее</value>
+    <value>Перейти</value>
   </data>
   <data name="Shop" xml:space="preserve">
     <value>Магазин</value>
@@ -224,5 +224,8 @@
   </data>
   <data name="Status" xml:space="preserve">
     <value>Статус</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>Отправить</value>
   </data>
 </root>

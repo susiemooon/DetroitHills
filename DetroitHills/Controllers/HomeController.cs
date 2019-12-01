@@ -38,12 +38,15 @@ namespace DetroitHills.Controllers
 
         public ActionResult Login()
         {
+            string returnUrl = Request.UrlReferrer.AbsolutePath;
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(string userName, string password)
+        public ActionResult Login(string userName, string password, string returnUrl)
         {
+            
             UserBL login = new UserBL();
             if (!login.isValidUser(userName, password))
             {
@@ -55,7 +58,10 @@ namespace DetroitHills.Controllers
             {
                 Session["login"] = userName; 
                 FormsAuthentication.SetAuthCookie(userName, false);
-                
+                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                {
+                    return Redirect(returnUrl);
+                }
                 return RedirectToAction("Index", "Home");
             }
         }
@@ -278,6 +284,28 @@ namespace DetroitHills.Controllers
             Post post = list.Where(u => u.PostId == postId).Single();
             post.numOfComments += 1;
             postBL.EditPost(post);
+
+            return PartialView("CommentList", comVM);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteComment(int id)
+        {
+            
+            CommentBL commentBL = new CommentBL();
+            Comment c = commentBL.GetComments().Where(u => u.CommentId == id).Single();
+            commentBL.DeleteComment(c);
+            int postId = c.PostId;
+            
+            PostBL postBL = new PostBL();
+            List<Post> list = postBL.GetPosts();
+            Post post = list.Where(u => u.PostId == postId).Single();
+            post.numOfComments -= 1;
+            postBL.EditPost(post);
+
+            CommentsVM comVM = new CommentsVM();
+            comVM.commentsList = commentBL.FindComments(postId);
+            comVM.commentsList.Reverse();
 
             return PartialView("CommentList", comVM);
         }

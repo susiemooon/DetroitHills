@@ -5,8 +5,8 @@
 @import url(css/classy-nav.css);
 @import url(css/owl.carousel.min.css);
 @import url(css/animate.css);
-@import url(css/magnific-popup.css);
-@import url(css/font-awesome.min.css);
+/*@import url(css/magnific-popup.css);
+/*@import url(css/font-awesome.min.css);*/
 @import url(css/audioplayer.css);
 @import url(css/one-music-icon.css);
 
@@ -489,7 +489,7 @@ table td, table th {
 .classycloseIcon .cross-wrap span {
   background: #ffffff; }
 
-  /*.featured-trending-video {
+  .featured-trending-video {
   position: relative;
   z-index: 1;
   display: block;
@@ -509,9 +509,9 @@ table td, table th {
     z-index: 1;
     width: 100%;
     height: 100%;
-    border-radius: 5px; }*/
+    border-radius: 5px; }
 
-/* :: 5.0 Hero Slides Area */
+
 .hero-area,
 .hero-slides {
   position: relative;
@@ -1225,9 +1225,8 @@ table td, table th {
   margin-bottom: 15px;
   border: none;
   border-radius: 0;
-  padding: 15px 0;
-  font-style: italic;
-  color: #b3b3b3;
+  padding: 15px 0;  
+  color: #000000;
   border-bottom: 1px solid #000000;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms; }

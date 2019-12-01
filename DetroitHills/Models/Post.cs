@@ -13,12 +13,13 @@ namespace DetroitHills.Models
         [Key]
         public int PostId { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Title is required")]
+        
         public string title { get; set; }
 
         public string title_lng { get; set; }
 
-        [Required]
+        [Required (ErrorMessage ="Text is required")]
         public string text { get; set; }
 
         public string text_lng { get; set; }

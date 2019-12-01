@@ -11,29 +11,29 @@
 </section>
 
     <section>
-        <!-- ##### Blog Area Start ##### -->
+        
         <div class="blog-area section-padding-100">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-lg-9">
                         @foreach (var u in Model.posts)
                         {
-                    <!-- Single Post Start -->
+                    
                             <div class="single-blog-post mb-100 wow fadeInUp" data-wow-delay="100ms">
-                                <!-- Post Thumb -->
+                                
                                 <div class="blog-post-thumb mt-30">
                                     <a href="#"><img src="@Html.DisplayFor(m => u.image)" alt=""></a>
-                                    <!-- Post Date -->
+                                    
                                     <div class="post-date">
                                         <span>@Html.DisplayFor(m => u.date.Day)</span>
                                         <span>@Html.DisplayFor(m => u.date.Month) @Html.DisplayFor(m => u.date.Year)</span>
                                     </div>
                                 </div>
 
-                                <!-- Blog Content -->
+                                
                                 <div class="blog-content">
-                                    <!-- Post Title -->
-                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                                   
+                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en") || u.title_lng==null)
                                     {
                                         <a href="#" class="post-title">@Html.DisplayFor(m => u.title)</a>
                                     }
@@ -41,7 +41,7 @@
                                     {
                                         <a href="#" class="post-title">@Html.DisplayFor(m => u.title_lng)</a>
                                     }
-                                    <!-- Post Meta -->
+                                    
                                     <div class="post-meta d-flex mb-30">                                        
                                         <p ><button class="btn btn-light" onclick="location.href='@Url.Action("Post", "Home", new {id = u.PostId })'">See More</button></p>
                                         
@@ -58,7 +58,7 @@
                                        }
 
                                     </div>
-                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en"))
+                                    @if (Session["lang"] == null || Session["lang"].ToString().Equals("en") || u.text_lng==null)
                                     {
                                         if (u.text.Length <= 50)
                                         {

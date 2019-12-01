@@ -9,8 +9,7 @@
         <h2>@Resources.Resource.Login</h2>
     </div>
 </section>
-<!-- ##### Breadcumb Area Ed ##### -->
-<!-- ##### Login Area Start ##### -->
+
 <section class="login-area section-padding-100">
     <div class="container">
         <div class="row justify-content-center">
@@ -19,8 +18,9 @@
                     <h3>@Resources.Resource.WelcomeBack</h3>
                     <!-- Login Form -->
                     <div class="login-form">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
                     {
+                        
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group">
                                 <label>@Resources.Resource.UserName</label>

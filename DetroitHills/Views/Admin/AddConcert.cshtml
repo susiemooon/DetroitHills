@@ -29,7 +29,11 @@
                             </div>
                             <div class="form-group">
                                 <label>Place:</label>
-                                <p>@Html.EditorFor(m => Model.place, new { htmlAttributes = new { @class = "form-small" } })</p>
+                                <p>@Html.EditorFor(m => Model.place, new { htmlAttributes = new { @class = "form-small", autocomplete = "off" } })</p>
+                            </div>
+                            <div class="form-group">
+                                <label>Link to Tickets:</label>
+                                <p>@Html.EditorFor(m => Model.ticketLink, new { htmlAttributes = new { @class = "form-small", autocomplete = "off" } })</p>
                             </div>
                             <button type="submit" class="btn oneMusic-btn mt-30">Add</button>
                         }

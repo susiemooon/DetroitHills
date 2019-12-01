@@ -226,4 +226,7 @@ since March, 2011</value>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
 </root>

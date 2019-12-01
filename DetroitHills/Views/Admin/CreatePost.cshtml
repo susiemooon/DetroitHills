@@ -22,10 +22,12 @@
                         
                             <div class="form-group">
                                 <label>Title:</label>
-                                <p>@Html.EditorFor(m => Model.title, new { htmlAttributes = new { @class = "form-small" } })</p>
+                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.title)</p>
+                                <p>@Html.EditorFor(m => Model.title, new { htmlAttributes = new { @class = "form-small", autocomplete = "off" } })</p>
                             </div>
                             <div class="form-group">
                                 <label>Text:</label>
+                                <p style="text-align: left; color:red; font: bold">@Html.ValidationMessageFor(m => m.text)</p>
                                 <textarea class="form-big" name="text"></textarea>
                             </div>
                             
@@ -38,7 +40,7 @@
 
                         <div class="form-group">
                             <label>Title:</label>
-                            <p>@Html.EditorFor(m => Model.title_lng, new { htmlAttributes = new { @class = "form-small" } })</p>
+                            <p>@Html.EditorFor(m => Model.title_lng, new { htmlAttributes = new { @class = "form-small", autocomplete = "off" } })</p>
                         </div>
                         <div class="form-group">
                             <label>Text:</label>

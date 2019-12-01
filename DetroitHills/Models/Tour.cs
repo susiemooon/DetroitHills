@@ -17,5 +17,7 @@ namespace DetroitHills.Models
         public string name { get; set; }
 
         public string place { get; set; }
+
+        public string ticketLink { get; set; }
     }
 }

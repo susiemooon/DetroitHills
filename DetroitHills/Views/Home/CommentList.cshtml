@@ -6,6 +6,18 @@
         <h5>@Html.DisplayFor(m => u.userName):</h5>
         <p> @Html.DisplayFor(m => u.text)</p>
         @Html.DisplayFor(m => u.date)
+        <p></p>
+        @if (Session["login"] != null)
+        {
+            if (Session["login"].ToString() == u.userName)
+            {
+
+                using (Ajax.BeginForm("DeleteComment", new { id = u.CommentId }, new AjaxOptions { UpdateTargetId = "results" }))
+                {
+                    <p><button type="submit" class="btn btn-outline-dark">Delete</button></p>
+                }
+            }
+        }
     </div>
 }
 

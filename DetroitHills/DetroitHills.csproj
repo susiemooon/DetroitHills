@@ -97,6 +97,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\audio\Attraction.mp3" />
     <Content Include="Assets\audio\Copacabana.mp3" />
     <Content Include="Assets\audio\Falling Upward.mp3" />
     <Content Include="Assets\audio\Go Home.mp3" />
@@ -123,9 +124,6 @@
     <Content Include="Assets\css\magnific-popup.css" />
     <Content Include="Assets\css\one-music-icon.css" />
     <Content Include="Assets\css\owl.carousel.min.css" />
-    <Content Include="Assets\fonts\classy.svg" />
-    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
-    <Content Include="Assets\fonts\icomoon.svg" />
     <Content Include="Assets\img\bg-img\a1.jpg" />
     <Content Include="Assets\img\bg-img\a2.jpg" />
     <Content Include="Assets\img\bg-img\a3.jpg" />
@@ -133,6 +131,7 @@
     <Content Include="Assets\img\bg-img\a5.jpg" />
     <Content Include="Assets\img\bg-img\a6.jpg" />
     <Content Include="Assets\img\bg-img\a7.jpg" />
+    <Content Include="Assets\img\bg-img\a8.jpg" />
     <Content Include="Assets\img\bg-img\bg-1.jpg" />
     <Content Include="Assets\img\bg-img\bg-2.jpg" />
     <Content Include="Assets\img\bg-img\blog1.jpg" />
@@ -271,17 +270,6 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Assets\fonts\classy.eot" />
-    <Content Include="Assets\fonts\classy.ttf" />
-    <Content Include="Assets\fonts\classy.woff" />
-    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
-    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
-    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Assets\fonts\FontAwesome.otf" />
-    <Content Include="Assets\fonts\icomoon.eot" />
-    <Content Include="Assets\fonts\icomoon.ttf" />
-    <Content Include="Assets\fonts\icomoon.woff" />
     <Content Include="Views\Home\Worldplace.cshtml" />
     <Content Include="Views\Home\Delight.cshtml" />
     <Content Include="Views\Home\Memory.cshtml" />
